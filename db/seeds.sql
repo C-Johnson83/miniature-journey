@@ -1,4 +1,4 @@
-INSERT INTO departments (name)
+INSERT INTO department (name)
 VALUES ("Engineering and Facilities"),
         ("Warehousing"),
         ("Shipping"),
@@ -8,25 +8,25 @@ VALUES ("Engineering and Facilities"),
 
 INSERT INTO roles (title, salary, department_id) 
 VALUES 
-  ("Box Cutter", "35,000.00", 5),
-  ("Facilitator", "50,000.00", 1),
-  ("Inventory Management", "55,000.00", 2),
-  ("Manager", "100,000.00", 1),
-  ("Manager", "80,000.00", 2),
-  ("Manager", "80,000.00", 3),
-  ("Manager", "70,000.00", 5),
-  ("Manager", "85,000.00", 4),
-  ("Manager", "125,500.00", 6),
-  ("Mechanic", "80,000.00", 1),
-  ("Packer", "40,000.00", 5),
-  ("Pallet Builder", "50,000.00", 4),
-  ("Quality Captain", "95,500.00", 6)
-  ("Receiver", "50,000.00", 4),
-  ("Sorting", "45,000.00",3),
-  ("Truck Loader", "45,000.00", 3),
-  ("Vendor Auditor", "80,000.00",6),
-  ("Warehouse Auditor", "80,000.00", 6),
-  ("Warehouse Worker", "45,000.00",2);
+  ("Box Cutter", 35000.00, 5),
+  ("Facilitator", 50000.00, 1),
+  ("Inventory Management", 55000.00, 2),
+  ("Manager", 100000.00, 1),
+  ("Manager", 80000.00, 2),
+  ("Manager", 80000.00, 3),
+  ("Manager", 70000.00, 5),
+  ("Manager", 85000.00, 4),
+  ("Manager", 125500.00, 6),
+  ("Mechanic", 80000.00, 1),
+  ("Packer", 40000.00, 5),
+  ("Pallet Builder", 50000.00, 4),
+  ("Quality Captain", 95500.00, 6),
+  ("Receiver", 50000.00, 4),
+  ("Sorting", 45000.00, 3),
+  ("Truck Loader", 45000.00, 3),
+  ("Vendor Auditor", 80000.00, 6),
+  ("Warehouse Auditor", 80000.00, 6),
+  ("Warehouse Worker", 45000.00, 2);
 
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
