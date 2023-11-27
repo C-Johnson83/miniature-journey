@@ -17,7 +17,30 @@ connection.connect((err) => {
   console.log('Connected to the MySQL server.\n');
   startApp();
 });
-
+function printCompanyRosterBanner() {
+    console.log('  /$$$$$$                                                                 ');
+    console.log(' /$$__  $$                                                                ');
+    console.log('| $$  \__/  /$$$$$$  /$$$$$$/$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$   /$$ ');
+    console.log('| $$       /$$__  $$| $$_  $$_  $$ /$$__  $$ |____  $$| $$__  $$| $$  | $$ ');
+    console.log('| $$      | $$  \ $$| $$ \ $$ \ $$| $$  \ $$  /$$$$$$$| $$  \ $$| $$  | $$ ');
+    console.log('| $$    $$| $$  | $$| $$ | $$ | $$| $$  | $$ /$$__  $$| $$  | $$| $$  | $$ ');
+    console.log('|  $$$$$$/|  $$$$$$/| $$ | $$ | $$| $$$$$$$/|  $$$$$$$| $$  | $$|  $$$$$$$ ');
+    console.log('\______/  \______/ |__/ |__/ |__/| $$____/  \_______/|__/  |__/ \____  $$  ');
+    console.log('                                 | $$                           /$$  | $$  ');
+    console.log('                                 | $$                          |  $$$$$$/  ');
+    console.log('                                 |__/                           \______/   ');
+    console.log(' /$$$$$$$                        /$$                                       ');
+    console.log('| $$__  $$                      | $$                                       ');
+    console.log('| $$  \ $$  /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$                ');
+    console.log('| $$$$$$$/ /$$__  $$ /$$_____/|_  $$_/   /$$__  $$ /$$__  $$               ');
+    console.log('| $$__  $$| $$  \ $$|  $$$$$$   | $$    | $$$$$$$$| $$  \__/               ');
+    console.log('| $$  \ $$| $$  | $$ \____  $$  | $$ /$$| $$_____/| $$                     ');
+    console.log('| $$  | $$|  $$$$$$/ /$$$$$$$/  |  $$$$/|  $$$$$$$| $$                     ');
+    console.log('|__/  |__/ \______/ |_______/    \___/   \_______/|__/                     ');
+}                                                                       
+                                                                        
+  // Call the function when the application starts
+  printCompanyRosterBanner();
 // Function to start the application
 function startApp() {
   inquirer
