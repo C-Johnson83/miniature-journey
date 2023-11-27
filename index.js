@@ -17,6 +17,31 @@ connection.connect((err) => {
   console.log('Connected to the MySQL server.\n');
   startApp();
 });
+
+function printCompanyDatabaseBanner() {
+console.log('   ▄████▄   ▒█████   ███▄ ▄███▓ ██▓███   ▄▄▄       ███▄    █ ▓██   ██▓   ');
+console.log('  ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓██░  ██▒▒████▄     ██ ▀█   █  ▒██  ██▒   ');
+console.log('  ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▓██░ ██▓▒▒██  ▀█▄  ▓██  ▀█ ██▒  ▒██ ██░   ');
+console.log('  ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▓██▒  ▐▌██▒  ░ ▐██▓░   ');
+console.log('  ▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒▒██▒ ░  ░ ▓█   ▓██▒▒██░   ▓██░  ░ ██▒▓░   ');
+console.log('  ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒    ██▒▒▒    ');
+console.log('    ░  ▒     ░ ▒ ▒░ ░  ░      ░░▒ ░       ▒   ▒▒ ░░ ░░   ░ ▒░ ▓██ ░▒░    ');
+console.log('  ░        ░ ░ ░ ▒  ░      ░   ░░         ░   ▒      ░   ░ ░  ▒ ▒ ░░     ');
+console.log('  ░ ░          ░ ░         ░                  ░  ░         ░  ░ ░        ');
+console.log('  ░                                                           ░ ░        ');
+console.log('  ▓█████▄  ▄▄▄      ▄▄▄█████▓ ▄▄▄       ▄▄▄▄    ▄▄▄        ██████ ▓█████ ');
+console.log('  ▒██▀ ██▌▒████▄    ▓  ██▒ ▓▒▒████▄    ▓█████▄ ▒████▄    ▒██    ▒ ▓█   ▀ ');
+console.log('  ░██   █▌▒██  ▀█▄  ▒ ▓██░ ▒░▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄   ▒███   ');
+console.log('  ░▓█▄   ▌░██▄▄▄▄██ ░ ▓██▓ ░ ░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▒▓█  ▄ ');
+console.log('  ░▒████▓  ▓█   ▓██▒  ▒██▒ ░  ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒░▒████▒');
+console.log('   ▒▒▓  ▒  ▒▒   ▓▒█░  ▒ ░░    ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░░ ▒░ ░');
+console.log('   ░ ▒  ▒   ▒   ▒▒ ░    ░      ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░ ░ ░  ░');
+console.log('   ░ ░  ░   ░   ▒     ░        ░   ▒    ░    ░   ░   ▒   ░  ░  ░     ░   ');
+console.log('     ░          ░  ░               ░  ░ ░            ░  ░      ░     ░  ░');
+console.log('   ░                                         ░                           ');
+};
+
+
 function printCompanyRosterBanner() {
     console.log('  /$$$$$$                                                                 ');
     console.log(' /$$__  $$                                                                ');
@@ -39,8 +64,8 @@ function printCompanyRosterBanner() {
     console.log('|__/  |__/ \______/ |_______/    \___/   \_______/|__/                     ');
 }                                                                       
                                                                         
-  // Call the function when the application starts
-  printCompanyRosterBanner();
+  // Call the function when the application starts to show the Banner
+  printCompanyDatabaseBanner();
 // Function to start the application
 function startApp() {
   inquirer
