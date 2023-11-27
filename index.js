@@ -19,6 +19,7 @@ connection.connect((err) => {
 });
 
 function printCompanyDatabaseBanner() {
+
 console.log('   ▄████▄   ▒█████   ███▄ ▄███▓ ██▓███   ▄▄▄       ███▄    █ ▓██   ██▓   ');
 console.log('  ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓██░  ██▒▒████▄     ██ ▀█   █  ▒██  ██▒   ');
 console.log('  ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▓██░ ██▓▒▒██  ▀█▄  ▓██  ▀█ ██▒  ▒██ ██░   ');
@@ -40,30 +41,7 @@ console.log('   ░ ░  ░   ░   ▒     ░        ░   ▒    ░    ░ 
 console.log('     ░          ░  ░               ░  ░ ░            ░  ░      ░     ░  ░');
 console.log('   ░                                         ░                           ');
 };
-
-
-function printCompanyRosterBanner() {
-    console.log('  /$$$$$$                                                                 ');
-    console.log(' /$$__  $$                                                                ');
-    console.log('| $$  \__/  /$$$$$$  /$$$$$$/$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$   /$$ ');
-    console.log('| $$       /$$__  $$| $$_  $$_  $$ /$$__  $$ |____  $$| $$__  $$| $$  | $$ ');
-    console.log('| $$      | $$  \ $$| $$ \ $$ \ $$| $$  \ $$  /$$$$$$$| $$  \ $$| $$  | $$ ');
-    console.log('| $$    $$| $$  | $$| $$ | $$ | $$| $$  | $$ /$$__  $$| $$  | $$| $$  | $$ ');
-    console.log('|  $$$$$$/|  $$$$$$/| $$ | $$ | $$| $$$$$$$/|  $$$$$$$| $$  | $$|  $$$$$$$ ');
-    console.log('\______/  \______/ |__/ |__/ |__/| $$____/  \_______/|__/  |__/ \____  $$  ');
-    console.log('                                 | $$                           /$$  | $$  ');
-    console.log('                                 | $$                          |  $$$$$$/  ');
-    console.log('                                 |__/                           \______/   ');
-    console.log(' /$$$$$$$                        /$$                                       ');
-    console.log('| $$__  $$                      | $$                                       ');
-    console.log('| $$  \ $$  /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$                ');
-    console.log('| $$$$$$$/ /$$__  $$ /$$_____/|_  $$_/   /$$__  $$ /$$__  $$               ');
-    console.log('| $$__  $$| $$  \ $$|  $$$$$$   | $$    | $$$$$$$$| $$  \__/               ');
-    console.log('| $$  \ $$| $$  | $$ \____  $$  | $$ /$$| $$_____/| $$                     ');
-    console.log('| $$  | $$|  $$$$$$/ /$$$$$$$/  |  $$$$/|  $$$$$$$| $$                     ');
-    console.log('|__/  |__/ \______/ |_______/    \___/   \_______/|__/                     ');
-}                                                                       
-                                                                        
+                                                                  
   // Call the function when the application starts to show the Banner
   printCompanyDatabaseBanner();
 // Function to start the application
@@ -128,6 +106,18 @@ function startApp() {
 // Implement the functions for each action 
 
 function viewDepartments() {
+    
+    console.log('  ▓█████▄ ▓█████  ██▓███   ▄▄▄       ██▀███  ▄▄▄█████▓ ███▄ ▄███▓▓█████  ███▄    █ ▄▄▄█████▓  ██████   ');
+    console.log('  ▒██▀ ██▌▓█   ▀ ▓██░  ██▒▒████▄    ▓██ ▒ ██▒▓  ██▒ ▓▒▓██▒▀█▀ ██▒▓█   ▀  ██ ▀█   █ ▓  ██▒ ▓▒▒██    ▒   ');
+    console.log('  ░██   █▌▒███   ▓██░ ██▓▒▒██  ▀█▄  ▓██ ░▄█ ▒▒ ▓██░ ▒░▓██    ▓██░▒███   ▓██  ▀█ ██▒▒ ▓██░ ▒░░ ▓██▄     ');
+    console.log('  ░▓█▄   ▌▒▓█  ▄ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▒██▀▀█▄  ░ ▓██▓ ░ ▒██    ▒██ ▒▓█  ▄ ▓██▒  ▐▌██▒░ ▓██▓ ░   ▒   ██▒  ');
+    console.log('  ░▒████▓ ░▒████▒▒██▒ ░  ░ ▓█   ▓██▒░██▓ ▒██▒  ▒██▒ ░ ▒██▒   ░██▒░▒████▒▒██░   ▓██░  ▒██▒ ░ ▒██████▒▒  ');
+    console.log('   ▒▒▓  ▒ ░░ ▒░ ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░  ▒ ░░   ░ ▒░   ░  ░░░ ▒░ ░░ ▒░   ▒ ▒   ▒ ░░   ▒ ▒▓▒ ▒ ░  ');
+    console.log('   ░ ▒  ▒  ░ ░  ░░▒ ░       ▒   ▒▒ ░  ░▒ ░ ▒░    ░    ░  ░      ░ ░ ░  ░░ ░░   ░ ▒░    ░    ░ ░▒  ░ ░  ');
+    console.log('   ░ ░  ░    ░   ░░         ░   ▒     ░░   ░   ░      ░      ░      ░      ░   ░ ░   ░      ░  ░  ░    ');
+    console.log('     ░       ░  ░               ░  ░   ░                     ░      ░  ░         ░                ░    ');
+    console.log('   ░                                                                                                   ');
+
   // Implement code to view all departments from the database
   const query = 'SELECT * FROM department';
   connection.query(query, (err, res) => {
@@ -138,6 +128,18 @@ function viewDepartments() {
 }
 
 function viewRoles() {
+
+    console.log('   ██▀███   ▒█████   ██▓    ▓█████   ██████  ');
+    console.log('  ▓██ ▒ ██▒▒██▒  ██▒▓██▒    ▓█   ▀ ▒██    ▒  ');
+    console.log('  ▓██ ░▄█ ▒▒██░  ██▒▒██░    ▒███   ░ ▓██▄    ');
+    console.log('  ▒██▀▀█▄  ▒██   ██░▒██░    ▒▓█  ▄   ▒   ██▒ ');
+    console.log('  ░██▓ ▒██▒░ ████▓▒░░██████▒░▒████▒▒██████▒▒ ');
+    console.log('  ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▓  ░░░ ▒░ ░▒ ▒▓▒ ▒ ░ ');
+    console.log('    ░▒ ░ ▒░  ░ ▒ ▒░ ░ ░ ▒  ░ ░ ░  ░░ ░▒  ░ ░ ');
+    console.log('    ░░   ░ ░ ░ ░ ▒    ░ ░      ░   ░  ░  ░   ');
+    console.log('     ░         ░ ░      ░  ░   ░  ░      ░   ');
+    
+ 
   // Implement code to view all roles from the database
   const query = 'SELECT * FROM roles';
   connection.query(query, (err, res) => {
@@ -148,6 +150,18 @@ function viewRoles() {
 }
 
 function viewEmployees() {
+    
+    console.log('  ▓█████  ███▄ ▄███▓ ██▓███   ██▓     ▒█████ ▓██   ██▓▓█████ ▓█████   ██████   ');
+    console.log('  ▓█   ▀ ▓██▒▀█▀ ██▒▓██░  ██▒▓██▒    ▒██▒  ██▒▒██  ██▒▓█   ▀ ▓█   ▀ ▒██    ▒   ');
+    console.log('  ▒███   ▓██    ▓██░▓██░ ██▓▒▒██░    ▒██░  ██▒ ▒██ ██░▒███   ▒███   ░ ▓██▄     ');
+    console.log('  ▒▓█  ▄ ▒██    ▒██ ▒██▄█▓▒ ▒▒██░    ▒██   ██░ ░ ▐██▓░▒▓█  ▄ ▒▓█  ▄   ▒   ██▒  ');
+    console.log('  ░▒████▒▒██▒   ░██▒▒██▒ ░  ░░██████▒░ ████▓▒░ ░ ██▒▓░░▒████▒░▒████▒▒██████▒▒  ');
+    console.log('  ░░ ▒░ ░░ ▒░   ░  ░▒▓▒░ ░  ░░ ▒░▓  ░░ ▒░▒░▒░   ██▒▒▒ ░░ ▒░ ░░░ ▒░ ░▒ ▒▓▒ ▒ ░  ');
+    console.log('   ░ ░  ░░  ░      ░░▒ ░     ░ ░ ▒  ░  ░ ▒ ▒░ ▓██ ░▒░  ░ ░  ░ ░ ░  ░░ ░▒  ░ ░  ');
+    console.log('     ░   ░      ░   ░░         ░ ░   ░ ░ ░ ▒  ▒ ▒ ░░     ░      ░   ░  ░  ░    ');
+    console.log('     ░  ░       ░                ░  ░    ░ ░  ░ ░        ░  ░   ░  ░      ░    ');
+    console.log('                                              ░ ░                              ');
+
   // Implement code to view all employees from the database
   const query = 'SELECT * FROM employee';
   connection.query(query, (err, res) => {
@@ -214,7 +228,64 @@ function addRole() {
 
 function addEmployee() {
   // Implement code to add an employee to the database
-}
+  inquirer
+  .prompt([
+    {
+      name: 'first_name',
+      type: 'input',
+      message: 'Enter the first name of the employee:',
+      validate: function (input) {
+        if (!input) {
+          return 'Please enter a first name.';
+        }
+        return true;
+      },
+    },
+    {
+      name: 'last_name',
+      type: 'input',
+      message: 'Enter the last name of the employee:',
+      validate: function (input) {
+        if (!input) {
+          return 'Please enter a last name.';
+        }
+        return true;
+      },
+    },
+    {
+      name: 'role_id',
+      type: 'input',
+      message: 'Enter the role ID of the employee:',
+      validate: function (input) {
+        if (!input) {
+          return 'Please enter a role ID.';
+        }
+        return true;
+      },
+    },
+    {
+      name: 'manager_id',
+      type: 'input',
+      message: 'Enter the manager ID of the employee (can be null for no manager):',
+    },
+  ])
+  .then((answers) => {
+    // Once the user provides the employee information, insert it into the database
+    const query =
+      'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
+    connection.query(
+      query,
+      [answers.first_name, answers.last_name, answers.role_id, answers.manager_id],
+      (err, res) => {
+        if (err) throw err;
+        console.log(
+          `Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
+        );
+        startApp(); // Go back to the main menu
+      }
+    );
+  });
+};
 
 function updateEmployeeRole() {
   // Implement code to update an employee's role in the database
