@@ -153,76 +153,144 @@ function startApp() {
 // Implement the functions for each action 
 
 function viewDepartments() {
+  setTimeout(() => {
   console.log('     ');
   console.log('     ');
     console.log('  ▓█████▄ ▓█████  ██▓███   ▄▄▄       ██▀███  ▄▄▄█████▓ ███▄ ▄███▓▓█████  ███▄    █ ▄▄▄█████▓  ██████   ');
+  }, 500);
+  setTimeout(() => {
     console.log('  ▒██▀ ██▌▓█   ▀ ▓██░  ██▒▒████▄    ▓██ ▒ ██▒▓  ██▒ ▓▒▓██▒▀█▀ ██▒▓█   ▀  ██ ▀█   █ ▓  ██▒ ▓▒▒██    ▒   ');
+  }, 750);
+  setTimeout(() => {
     console.log('  ░██   █▌▒███   ▓██░ ██▓▒▒██  ▀█▄  ▓██ ░▄█ ▒▒ ▓██░ ▒░▓██    ▓██░▒███   ▓██  ▀█ ██▒▒ ▓██░ ▒░░ ▓██▄     ');
+  }, 1000);
+  setTimeout(() => {
     console.log('  ░▓█▄   ▌▒▓█  ▄ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▒██▀▀█▄  ░ ▓██▓ ░ ▒██    ▒██ ▒▓█  ▄ ▓██▒  ▐▌██▒░ ▓██▓ ░   ▒   ██▒  ');
+  }, 1250);
+  setTimeout(() => {
     console.log('  ░▒████▓ ░▒████▒▒██▒ ░  ░ ▓█   ▓██▒░██▓ ▒██▒  ▒██▒ ░ ▒██▒   ░██▒░▒████▒▒██░   ▓██░  ▒██▒ ░ ▒██████▒▒  ');
+  }, 1500);
+  setTimeout(() => {
     console.log('   ▒▒▓  ▒ ░░ ▒░ ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░  ▒ ░░   ░ ▒░   ░  ░░░ ▒░ ░░ ▒░   ▒ ▒   ▒ ░░   ▒ ▒▓▒ ▒ ░  ');
+  }, 1750);
+  setTimeout(() => {
     console.log('   ░ ▒  ▒  ░ ░  ░░▒ ░       ▒   ▒▒ ░  ░▒ ░ ▒░    ░    ░  ░      ░ ░ ░  ░░ ░░   ░ ▒░    ░    ░ ░▒  ░ ░  ');
+  }, 2000);
+  setTimeout(() => {
     console.log('   ░ ░  ░    ░   ░░         ░   ▒     ░░   ░   ░      ░      ░      ░      ░   ░ ░   ░      ░  ░  ░    ');
+  }, 2250);
+  setTimeout(() => {
     console.log('     ░       ░  ░               ░  ░   ░                     ░      ░  ░         ░                ░    ');
+  }, 2500);
+  setTimeout(() => {
     console.log('   ░                                                                                                   ');
+  }, 2750);
+  setTimeout(() => {
     console.log('     ');
     console.log('     ');
-
+  }, 3000);
   // Implement code to view all departments from the database
+  setTimeout(() => {
   const query = 'SELECT * FROM department';
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
     startApp();
   });
+}, 3500);
 }
 
 function viewRoles() {
+  setTimeout(() => {
   console.log('     ');
   console.log('     ');
     console.log('   ██▀███   ▒█████   ██▓    ▓█████   ██████  ');
+  }, 500);
+  setTimeout(() => {
     console.log('  ▓██ ▒ ██▒▒██▒  ██▒▓██▒    ▓█   ▀ ▒██    ▒  ');
+  }, 750);
+  setTimeout(() => {
     console.log('  ▓██ ░▄█ ▒▒██░  ██▒▒██░    ▒███   ░ ▓██▄    ');
+  }, 1000);
+  setTimeout(() => {
     console.log('  ▒██▀▀█▄  ▒██   ██░▒██░    ▒▓█  ▄   ▒   ██▒ ');
+  }, 1250);
+  setTimeout(() => {
     console.log('  ░██▓ ▒██▒░ ████▓▒░░██████▒░▒████▒▒██████▒▒ ');
+  }, 1500);
+  setTimeout(() => {
     console.log('  ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▓  ░░░ ▒░ ░▒ ▒▓▒ ▒ ░ ');
+  }, 1750);
+  setTimeout(() => {
     console.log('    ░▒ ░ ▒░  ░ ▒ ▒░ ░ ░ ▒  ░ ░ ░  ░░ ░▒  ░ ░ ');
+  }, 2000);
+  setTimeout(() => {
     console.log('    ░░   ░ ░ ░ ░ ▒    ░ ░      ░   ░  ░  ░   ');
+  }, 2250);
+  setTimeout(() => {
     console.log('     ░         ░ ░      ░  ░   ░  ░      ░   ');
+  }, 2500);
+  setTimeout(() => {
     console.log('     ');
     console.log('     ');
- 
+  }, 3000);
   // Implement code to view all roles from the database
+  setTimeout(() => {
   const query = 'SELECT * FROM roles';
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
     startApp();
   });
+}, 3500);
 }
 
 function viewEmployees() {
+  setTimeout(() => {
   console.log('     ');
   console.log('     ');
     console.log('  ▓█████  ███▄ ▄███▓ ██▓███   ██▓     ▒█████ ▓██   ██▓▓█████ ▓█████   ██████   ');
+  }, 500);
+  setTimeout(() => {
     console.log('  ▓█   ▀ ▓██▒▀█▀ ██▒▓██░  ██▒▓██▒    ▒██▒  ██▒▒██  ██▒▓█   ▀ ▓█   ▀ ▒██    ▒   ');
+  }, 750);
+  setTimeout(() => {
     console.log('  ▒███   ▓██    ▓██░▓██░ ██▓▒▒██░    ▒██░  ██▒ ▒██ ██░▒███   ▒███   ░ ▓██▄     ');
+  }, 1000);
+  setTimeout(() => {
     console.log('  ▒▓█  ▄ ▒██    ▒██ ▒██▄█▓▒ ▒▒██░    ▒██   ██░ ░ ▐██▓░▒▓█  ▄ ▒▓█  ▄   ▒   ██▒  ');
+  }, 1250);
+  setTimeout(() => {
     console.log('  ░▒████▒▒██▒   ░██▒▒██▒ ░  ░░██████▒░ ████▓▒░ ░ ██▒▓░░▒████▒░▒████▒▒██████▒▒  ');
+  }, 1500);
+  setTimeout(() => {
     console.log('  ░░ ▒░ ░░ ▒░   ░  ░▒▓▒░ ░  ░░ ▒░▓  ░░ ▒░▒░▒░   ██▒▒▒ ░░ ▒░ ░░░ ▒░ ░▒ ▒▓▒ ▒ ░  ');
+  }, 1750);
+  setTimeout(() => {
     console.log('   ░ ░  ░░  ░      ░░▒ ░     ░ ░ ▒  ░  ░ ▒ ▒░ ▓██ ░▒░  ░ ░  ░ ░ ░  ░░ ░▒  ░ ░  ');
+  }, 2000);
+  setTimeout(() => {
     console.log('     ░   ░      ░   ░░         ░ ░   ░ ░ ░ ▒  ▒ ▒ ░░     ░      ░   ░  ░  ░    ');
+  }, 2250);
+  setTimeout(() => {
     console.log('     ░  ░       ░                ░  ░    ░ ░  ░ ░        ░  ░   ░  ░      ░    ');
+  }, 2500);
+  setTimeout(() => {
     console.log('                                              ░ ░                              ');
+  }, 2750);
+  setTimeout(() => {
     console.log('     ');
     console.log('     ');
+  }, 3000);
   // Implement code to view all employees from the database
+  setTimeout(() => {
   const query = 'SELECT * FROM employee';
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
     startApp();
   });
+}, 3500);
 }
 
 function addDepartment() {
