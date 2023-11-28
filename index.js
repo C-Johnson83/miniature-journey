@@ -17,66 +17,66 @@ function printCompanyDatabaseBanner() {
     console.log('    ');
     console.log('     ');
     console.log('   ▄████▄   ▒█████   ███▄ ▄███▓ ██▓███   ▄▄▄       ███▄    █ ▓██   ██▓   ');
-  }, 1000);
+  }, 100);
   setTimeout(() => {
     console.log('  ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓██░  ██▒▒████▄     ██ ▀█   █  ▒██  ██▒   ');
-  }, 1250);
+  }, 125);
   setTimeout(() => {
     console.log('  ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▓██░ ██▓▒▒██  ▀█▄  ▓██  ▀█ ██▒  ▒██ ██░   ');
-  }, 1500);
-setTimeout(() => {
-  console.log('  ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▓██▒  ▐▌██▒  ░ ▐██▓░   ');
-}, 1750);
-setTimeout(() => {
-  console.log('  ▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒▒██▒ ░  ░ ▓█   ▓██▒▒██░   ▓██░  ░ ██▒▓░   ');
-}, 2000);
-setTimeout(() => {
-  console.log('  ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒    ██▒▒▒    ');
-}, 2250);
-setTimeout(() => {
-  console.log('    ░  ▒     ░ ▒ ▒░ ░  ░      ░░▒ ░       ▒   ▒▒ ░░ ░░   ░ ▒░ ▓██ ░▒░    ');
-}, 2500);
-setTimeout(() => {
-  console.log('  ░        ░ ░ ░ ▒  ░      ░   ░░         ░   ▒      ░   ░ ░  ▒ ▒ ░░     ');
-}, 2750);
-setTimeout(() => {
-  console.log('  ░ ░          ░ ░         ░                  ░  ░         ░  ░ ░        ');
-}, 3000);
-setTimeout(() => {
-  console.log('  ░                                                           ░ ░        ');
-}, 3250);
-setTimeout(() => {
-  console.log('  ▓█████▄  ▄▄▄      ▄▄▄█████▓ ▄▄▄       ▄▄▄▄    ▄▄▄        ██████ ▓█████ ');
-}, 3500);
-setTimeout(() => {
-  console.log('  ▒██▀ ██▌▒████▄    ▓  ██▒ ▓▒▒████▄    ▓█████▄ ▒████▄    ▒██    ▒ ▓█   ▀ ');
-}, 3750);
-setTimeout(() => {
-  console.log('  ░██   █▌▒██  ▀█▄  ▒ ▓██░ ▒░▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄   ▒███   ');
-}, 4000);
-setTimeout(() => {
-  console.log('  ░▓█▄   ▌░██▄▄▄▄██ ░ ▓██▓ ░ ░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▒▓█  ▄ ');
-}, 4250);
-setTimeout(() => {
-  console.log('  ░▒████▓  ▓█   ▓██▒  ▒██▒ ░  ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒░▒████▒');
-}, 4500);
-setTimeout(() => {
-  console.log('   ▒▒▓  ▒  ▒▒   ▓▒█░  ▒ ░░    ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░░ ▒░ ░');
-}, 4750);
-setTimeout(() => {
-  console.log('   ░ ▒  ▒   ▒   ▒▒ ░    ░      ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░ ░ ░  ░');
-}, 5000);
-setTimeout(() => {
-  console.log('   ░ ░  ░   ░   ▒     ░        ░   ▒    ░    ░   ░   ▒   ░  ░  ░     ░   ');
-}, 5250);
-setTimeout(() => {
-  console.log('     ░          ░  ░               ░  ░ ░            ░  ░      ░     ░  ░');
-}, 5500);
-setTimeout(() => {
-  console.log('   ░                                         ░                           ');
-  console.log('     ');
-  console.log('     ');
-}, 5750);
+  }, 150);
+  setTimeout(() => {
+    console.log('  ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▓██▒  ▐▌██▒  ░ ▐██▓░   ');
+  }, 175);
+  setTimeout(() => {
+    console.log('  ▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒▒██▒ ░  ░ ▓█   ▓██▒▒██░   ▓██░  ░ ██▒▓░   ');
+  }, 200);
+  setTimeout(() => {
+    console.log('  ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒    ██▒▒▒    ');
+  }, 225);
+  setTimeout(() => {
+    console.log('    ░  ▒     ░ ▒ ▒░ ░  ░      ░░▒ ░       ▒   ▒▒ ░░ ░░   ░ ▒░ ▓██ ░▒░    ');
+  }, 250);
+  setTimeout(() => {
+    console.log('  ░        ░ ░ ░ ▒  ░      ░   ░░         ░   ▒      ░   ░ ░  ▒ ▒ ░░     ');
+  }, 275);
+  setTimeout(() => {
+    console.log('  ░ ░          ░ ░         ░                  ░  ░         ░  ░ ░        ');
+  }, 300);
+  setTimeout(() => {
+    console.log('  ░                                                           ░ ░        ');
+  }, 325);
+  setTimeout(() => {
+    console.log('  ▓█████▄  ▄▄▄      ▄▄▄█████▓ ▄▄▄       ▄▄▄▄    ▄▄▄        ██████ ▓█████ ');
+  }, 350);
+  setTimeout(() => {
+    console.log('  ▒██▀ ██▌▒████▄    ▓  ██▒ ▓▒▒████▄    ▓█████▄ ▒████▄    ▒██    ▒ ▓█   ▀ ');
+  }, 375);
+  setTimeout(() => {
+    console.log('  ░██   █▌▒██  ▀█▄  ▒ ▓██░ ▒░▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄   ▒███   ');
+  }, 400);
+  setTimeout(() => {
+    console.log('  ░▓█▄   ▌░██▄▄▄▄██ ░ ▓██▓ ░ ░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▒▓█  ▄ ');
+  }, 425);
+  setTimeout(() => {
+    console.log('  ░▒████▓  ▓█   ▓██▒  ▒██▒ ░  ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒░▒████▒');
+  }, 450);
+  setTimeout(() => {
+    console.log('   ▒▒▓  ▒  ▒▒   ▓▒█░  ▒ ░░    ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░░ ▒░ ░');
+  }, 475);
+  setTimeout(() => {
+    console.log('   ░ ▒  ▒   ▒   ▒▒ ░    ░      ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░ ░ ░  ░');
+  }, 500);
+  setTimeout(() => {
+    console.log('   ░ ░  ░   ░   ▒     ░        ░   ▒    ░    ░   ░   ▒   ░  ░  ░     ░   ');
+  }, 525);
+  setTimeout(() => {
+    console.log('     ░          ░  ░               ░  ░ ░            ░  ░      ░     ░  ░');
+  }, 550);
+  setTimeout(() => {
+    console.log('   ░                                         ░                           ');
+    console.log('     ');
+    console.log('     ');
+  }, 575);
 
 };
 
@@ -88,8 +88,8 @@ connection.connect((err) => {
   if (err) throw err;
   console.log('Connected to the MySQL server.\n');
   setTimeout(() => {
-  startApp();
-}, 6250);
+    startApp();
+  }, 750);
 });
 // Function to start the application
 function startApp() {
@@ -154,282 +154,282 @@ function startApp() {
 
 function viewDepartments() {
   setTimeout(() => {
-  console.log('     ');
-  console.log('     ');
+    console.log('     ');
+    console.log('     ');
     console.log('  ▓█████▄ ▓█████  ██▓███   ▄▄▄       ██▀███  ▄▄▄█████▓ ███▄ ▄███▓▓█████  ███▄    █ ▄▄▄█████▓  ██████   ');
-  }, 500);
+  }, 100);
   setTimeout(() => {
     console.log('  ▒██▀ ██▌▓█   ▀ ▓██░  ██▒▒████▄    ▓██ ▒ ██▒▓  ██▒ ▓▒▓██▒▀█▀ ██▒▓█   ▀  ██ ▀█   █ ▓  ██▒ ▓▒▒██    ▒   ');
-  }, 750);
+  }, 125);
   setTimeout(() => {
     console.log('  ░██   █▌▒███   ▓██░ ██▓▒▒██  ▀█▄  ▓██ ░▄█ ▒▒ ▓██░ ▒░▓██    ▓██░▒███   ▓██  ▀█ ██▒▒ ▓██░ ▒░░ ▓██▄     ');
-  }, 1000);
+  }, 150);
   setTimeout(() => {
     console.log('  ░▓█▄   ▌▒▓█  ▄ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▒██▀▀█▄  ░ ▓██▓ ░ ▒██    ▒██ ▒▓█  ▄ ▓██▒  ▐▌██▒░ ▓██▓ ░   ▒   ██▒  ');
-  }, 1250);
+  }, 175);
   setTimeout(() => {
     console.log('  ░▒████▓ ░▒████▒▒██▒ ░  ░ ▓█   ▓██▒░██▓ ▒██▒  ▒██▒ ░ ▒██▒   ░██▒░▒████▒▒██░   ▓██░  ▒██▒ ░ ▒██████▒▒  ');
-  }, 1500);
+  }, 200);
   setTimeout(() => {
     console.log('   ▒▒▓  ▒ ░░ ▒░ ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░  ▒ ░░   ░ ▒░   ░  ░░░ ▒░ ░░ ▒░   ▒ ▒   ▒ ░░   ▒ ▒▓▒ ▒ ░  ');
-  }, 1750);
+  }, 225);
   setTimeout(() => {
     console.log('   ░ ▒  ▒  ░ ░  ░░▒ ░       ▒   ▒▒ ░  ░▒ ░ ▒░    ░    ░  ░      ░ ░ ░  ░░ ░░   ░ ▒░    ░    ░ ░▒  ░ ░  ');
-  }, 2000);
+  }, 250);
   setTimeout(() => {
     console.log('   ░ ░  ░    ░   ░░         ░   ▒     ░░   ░   ░      ░      ░      ░      ░   ░ ░   ░      ░  ░  ░    ');
-  }, 2250);
+  }, 275);
   setTimeout(() => {
     console.log('     ░       ░  ░               ░  ░   ░                     ░      ░  ░         ░                ░    ');
-  }, 2500);
+  }, 300);
   setTimeout(() => {
     console.log('   ░                                                                                                   ');
-  }, 2750);
+  }, 325);
   setTimeout(() => {
     console.log('     ');
     console.log('     ');
-  }, 3000);
+  }, 350);
   // Implement code to view all departments from the database
   setTimeout(() => {
-  const query = 'SELECT id, name FROM department';
-  connection.query(query, (err, res) => {
-    if (err) throw err;
-    console.table(res);
-    startApp();
-  });
-}, 3500);
+    const query = 'SELECT id, name FROM department';
+    connection.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      startApp();
+    });
+  }, 525);
 }
 
 function viewRoles() {
   setTimeout(() => {
-  console.log('     ');
-  console.log('     ');
+    console.log('     ');
+    console.log('     ');
     console.log('   ██▀███   ▒█████   ██▓    ▓█████   ██████  ');
-  }, 500);
+  }, 100);
   setTimeout(() => {
     console.log('  ▓██ ▒ ██▒▒██▒  ██▒▓██▒    ▓█   ▀ ▒██    ▒  ');
-  }, 750);
+  }, 125);
   setTimeout(() => {
     console.log('  ▓██ ░▄█ ▒▒██░  ██▒▒██░    ▒███   ░ ▓██▄    ');
-  }, 1000);
+  }, 150);
   setTimeout(() => {
     console.log('  ▒██▀▀█▄  ▒██   ██░▒██░    ▒▓█  ▄   ▒   ██▒ ');
-  }, 1250);
+  }, 175);
   setTimeout(() => {
     console.log('  ░██▓ ▒██▒░ ████▓▒░░██████▒░▒████▒▒██████▒▒ ');
-  }, 1500);
+  }, 200);
   setTimeout(() => {
     console.log('  ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▓  ░░░ ▒░ ░▒ ▒▓▒ ▒ ░ ');
-  }, 1750);
+  }, 225);
   setTimeout(() => {
     console.log('    ░▒ ░ ▒░  ░ ▒ ▒░ ░ ░ ▒  ░ ░ ░  ░░ ░▒  ░ ░ ');
-  }, 2000);
+  }, 250);
   setTimeout(() => {
     console.log('    ░░   ░ ░ ░ ░ ▒    ░ ░      ░   ░  ░  ░   ');
-  }, 2250);
+  }, 275);
   setTimeout(() => {
     console.log('     ░         ░ ░      ░  ░   ░  ░      ░   ');
-  }, 2500);
+  }, 300);
   setTimeout(() => {
     console.log('     ');
     console.log('     ');
-  }, 3000);
+  }, 350);
   // Implement code to view all roles from the database
   setTimeout(() => {
-  const query = 'SELECT * FROM roles JOIN department ON roles.department_id = department.id';
-  connection.query(query, (err, res) => {
-    if (err) throw err;
-    console.table(res);
-    startApp();
-  });
-}, 3500);
+    const query = 'SELECT * FROM roles JOIN department ON roles.department_id = department.id';
+    connection.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      startApp();
+    });
+  }, 525);
 }
 
 function viewEmployees() {
   setTimeout(() => {
-  console.log('     ');
-  console.log('     ');
+    console.log('     ');
+    console.log('     ');
     console.log('  ▓█████  ███▄ ▄███▓ ██▓███   ██▓     ▒█████ ▓██   ██▓▓█████ ▓█████   ██████   ');
-  }, 500);
+  }, 100);
   setTimeout(() => {
     console.log('  ▓█   ▀ ▓██▒▀█▀ ██▒▓██░  ██▒▓██▒    ▒██▒  ██▒▒██  ██▒▓█   ▀ ▓█   ▀ ▒██    ▒   ');
-  }, 750);
+  }, 125);
   setTimeout(() => {
     console.log('  ▒███   ▓██    ▓██░▓██░ ██▓▒▒██░    ▒██░  ██▒ ▒██ ██░▒███   ▒███   ░ ▓██▄     ');
-  }, 1000);
+  }, 150);
   setTimeout(() => {
     console.log('  ▒▓█  ▄ ▒██    ▒██ ▒██▄█▓▒ ▒▒██░    ▒██   ██░ ░ ▐██▓░▒▓█  ▄ ▒▓█  ▄   ▒   ██▒  ');
-  }, 1250);
+  }, 175);
   setTimeout(() => {
     console.log('  ░▒████▒▒██▒   ░██▒▒██▒ ░  ░░██████▒░ ████▓▒░ ░ ██▒▓░░▒████▒░▒████▒▒██████▒▒  ');
-  }, 1500);
+  }, 200);
   setTimeout(() => {
     console.log('  ░░ ▒░ ░░ ▒░   ░  ░▒▓▒░ ░  ░░ ▒░▓  ░░ ▒░▒░▒░   ██▒▒▒ ░░ ▒░ ░░░ ▒░ ░▒ ▒▓▒ ▒ ░  ');
-  }, 1750);
+  }, 225);
   setTimeout(() => {
     console.log('   ░ ░  ░░  ░      ░░▒ ░     ░ ░ ▒  ░  ░ ▒ ▒░ ▓██ ░▒░  ░ ░  ░ ░ ░  ░░ ░▒  ░ ░  ');
-  }, 2000);
+  }, 250);
   setTimeout(() => {
     console.log('     ░   ░      ░   ░░         ░ ░   ░ ░ ░ ▒  ▒ ▒ ░░     ░      ░   ░  ░  ░    ');
-  }, 2250);
+  }, 275);
   setTimeout(() => {
     console.log('     ░  ░       ░                ░  ░    ░ ░  ░ ░        ░  ░   ░  ░      ░    ');
-  }, 2500);
+  }, 300);
   setTimeout(() => {
     console.log('                                              ░ ░                              ');
-  }, 2750);
+  }, 325);
   setTimeout(() => {
     console.log('     ');
     console.log('     ');
-  }, 3000);
+  }, 350);
   // Implement code to view all employees from the database
   setTimeout(() => {
-  const query = 'SELECT * FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ';
-  connection.query(query, (err, res) => {
-    if (err) throw err;
-    console.table(res);
-    startApp();
-  });
-}, 3500);
+    const query = 'SELECT * FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ';
+    connection.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      startApp();
+    });
+  }, 525);
 }
 
 function addDepartment() {
   // Implement code to add a department to the database
-    inquirer
-      .prompt([
-        {
-          name: 'departmentName',
-          type: 'input',
-          message: 'Enter the name of the department:',
-          validate: function (input) {
-            if (!input) {
-              return 'Please enter a department name.';
-            }
-            return true;
-          },
+  inquirer
+    .prompt([
+      {
+        name: 'departmentName',
+        type: 'input',
+        message: 'Enter the name of the department:',
+        validate: function (input) {
+          if (!input) {
+            return 'Please enter a department name.';
+          }
+          return true;
         },
-      ])
-      .then((answer) => {
-        // Once the user provides the department name, insert it into the database
-        const query = 'INSERT INTO department (name) VALUES (?)';
-        connection.query(query, [answer.departmentName], (err, res) => {
-          if (err) throw err;
-          console.log(`Department ${answer.departmentName} added successfully!\n`);
-          startApp(); // Go back to the main menu
-        });
+      },
+    ])
+    .then((answer) => {
+      // Once the user provides the department name, insert it into the database
+      const query = 'INSERT INTO department (name) VALUES (?)';
+      connection.query(query, [answer.departmentName], (err, res) => {
+        if (err) throw err;
+        console.log(`Department ${answer.departmentName} added successfully!\n`);
+        startApp(); // Go back to the main menu
       });
-  }
-  
+    });
+}
+
 
 function addRole() {
   // Implement code to add a role to the database
   inquirer
-  .prompt([
-    {
-      name: 'roleName',
-      type: 'input',
-      message: 'Enter the name of the role:',
-      validate: function (input) {
-        if (!input) {
-          return 'Please enter a role name.';
-        }
-        return true;
+    .prompt([
+      {
+        name: 'roleName',
+        type: 'input',
+        message: 'Enter the name of the role:',
+        validate: function (input) {
+          if (!input) {
+            return 'Please enter a role name.';
+          }
+          return true;
+        },
       },
-    },
-    {
-      name: 'salary',
-      type: 'input',
-      message: 'Enter the salary of the role:',
-      validate: function (input) {
-        if (!input) {
-          return 'Please enter a salary for the role.';
-        }
-        return true;
+      {
+        name: 'salary',
+        type: 'input',
+        message: 'Enter the salary of the role:',
+        validate: function (input) {
+          if (!input) {
+            return 'Please enter a salary for the role.';
+          }
+          return true;
+        },
       },
-    },
-    {
-      name: 'roleDeptId',
-      type: 'input',
-      message: 'Enter the ID number of the department for the role:',
-      validate: function (input) {
-        if (!input) {
-          return 'Please enter a department ID.';
-        }
-        return true;
+      {
+        name: 'roleDeptId',
+        type: 'input',
+        message: 'Enter the ID number of the department for the role:',
+        validate: function (input) {
+          if (!input) {
+            return 'Please enter a department ID.';
+          }
+          return true;
+        },
       },
-    },
-  ])
-  .then((answer) => {
-    // Once the user provides the role name, insert it into the database
-    const query = 'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)';
-    connection.query(query, [answer.roleName, answer.salary, answer.roleDeptId], 
-      (err, res) => {
-      if (err) throw err;
-      console.log(`Role ${answer.roleName} added successfully!\n`);
-      startApp(); // Go back to the main menu
+    ])
+    .then((answer) => {
+      // Once the user provides the role name, insert it into the database
+      const query = 'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)';
+      connection.query(query, [answer.roleName, answer.salary, answer.roleDeptId],
+        (err, res) => {
+          if (err) throw err;
+          console.log(`Role ${answer.roleName} added successfully!\n`);
+          startApp(); // Go back to the main menu
+        });
     });
-  });
 }
 
 function addEmployee() {
   // Implement code to add an employee to the database
   inquirer
-  .prompt([
-    {
-      name: 'first_name',
-      type: 'input',
-      message: 'Enter the first name of the employee:',
-      validate: function (input) {
-        if (!input) {
-          return 'Please enter a first name.';
-        }
-        return true;
+    .prompt([
+      {
+        name: 'first_name',
+        type: 'input',
+        message: 'Enter the first name of the employee:',
+        validate: function (input) {
+          if (!input) {
+            return 'Please enter a first name.';
+          }
+          return true;
+        },
       },
-    },
-    {
-      name: 'last_name',
-      type: 'input',
-      message: 'Enter the last name of the employee:',
-      validate: function (input) {
-        if (!input) {
-          return 'Please enter a last name.';
-        }
-        return true;
+      {
+        name: 'last_name',
+        type: 'input',
+        message: 'Enter the last name of the employee:',
+        validate: function (input) {
+          if (!input) {
+            return 'Please enter a last name.';
+          }
+          return true;
+        },
       },
-    },
-    {
-      name: 'role_id',
-      type: 'input',
-      message: 'Enter the role ID of the employee:',
-      validate: function (input) {
-        if (!input) {
-          return 'Please enter a role ID.';
-        }
-        return true;
+      {
+        name: 'role_id',
+        type: 'input',
+        message: 'Enter the role ID of the employee:',
+        validate: function (input) {
+          if (!input) {
+            return 'Please enter a role ID.';
+          }
+          return true;
+        },
       },
-    },
-    {
-      name: 'manager_id',
-      type: 'input',
-      message: 'Enter the manager ID of the employee (can be null for no manager):',
-    },
-  ])
-  .then((answers) => {
-    // Once the user provides the employee information, insert it into the database
-    const query =
-      'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
-    connection.query(
-      query,
-      [answers.first_name, answers.last_name, answers.role_id, answers.manager_id],
-      (err, res) => {
-        if (err) throw err;
-        console.log(
-          `Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
-        );
-        startApp(); // Go back to the main menu
-      }
-    );
-  });
+      {
+        name: 'manager_id',
+        type: 'input',
+        message: 'Enter the manager ID of the employee (can be null for no manager):',
+      },
+    ])
+    .then((answers) => {
+      // Once the user provides the employee information, insert it into the database
+      const query =
+        'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
+      connection.query(
+        query,
+        [answers.first_name, answers.last_name, answers.role_id, answers.manager_id],
+        (err, res) => {
+          if (err) throw err;
+          console.log(
+            `Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
+          );
+          startApp(); // Go back to the main menu
+        }
+      );
+    });
 };
 
 function updateEmployeeRole() {
