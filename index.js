@@ -191,7 +191,7 @@ function viewDepartments() {
   }, 3000);
   // Implement code to view all departments from the database
   setTimeout(() => {
-  const query = 'SELECT * FROM department';
+  const query = 'SELECT id, name FROM department';
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
@@ -236,7 +236,7 @@ function viewRoles() {
   }, 3000);
   // Implement code to view all roles from the database
   setTimeout(() => {
-  const query = 'SELECT * FROM roles';
+  const query = 'SELECT * FROM roles JOIN department ON roles.department_id = department.id';
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
@@ -284,7 +284,7 @@ function viewEmployees() {
   }, 3000);
   // Implement code to view all employees from the database
   setTimeout(() => {
-  const query = 'SELECT * FROM employee';
+  const query = 'SELECT * FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ';
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
