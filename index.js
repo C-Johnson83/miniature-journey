@@ -19,27 +19,67 @@ connection.connect((err) => {
 });
 
 function printCompanyDatabaseBanner() {
-
+  setTimeout(() => {
 console.log('   ▄████▄   ▒█████   ███▄ ▄███▓ ██▓███   ▄▄▄       ███▄    █ ▓██   ██▓   ');
+}, 1000);
+setTimeout(() => {
 console.log('  ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓██░  ██▒▒████▄     ██ ▀█   █  ▒██  ██▒   ');
+}, 1250);
+setTimeout(() => {
 console.log('  ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▓██░ ██▓▒▒██  ▀█▄  ▓██  ▀█ ██▒  ▒██ ██░   ');
+}, 1500);
+setTimeout(() => {
 console.log('  ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▓██▒  ▐▌██▒  ░ ▐██▓░   ');
+}, 1750);
+setTimeout(() => {
 console.log('  ▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒▒██▒ ░  ░ ▓█   ▓██▒▒██░   ▓██░  ░ ██▒▓░   ');
+}, 2000);
+setTimeout(() => {
 console.log('  ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒    ██▒▒▒    ');
+}, 2250);
+setTimeout(() => {
 console.log('    ░  ▒     ░ ▒ ▒░ ░  ░      ░░▒ ░       ▒   ▒▒ ░░ ░░   ░ ▒░ ▓██ ░▒░    ');
+}, 2500);
+setTimeout(() => {
 console.log('  ░        ░ ░ ░ ▒  ░      ░   ░░         ░   ▒      ░   ░ ░  ▒ ▒ ░░     ');
+}, 2750);
+setTimeout(() => {
 console.log('  ░ ░          ░ ░         ░                  ░  ░         ░  ░ ░        ');
+}, 3000);
+setTimeout(() => {
 console.log('  ░                                                           ░ ░        ');
+}, 3250);
+setTimeout(() => {
 console.log('  ▓█████▄  ▄▄▄      ▄▄▄█████▓ ▄▄▄       ▄▄▄▄    ▄▄▄        ██████ ▓█████ ');
+}, 3500);
+setTimeout(() => {
 console.log('  ▒██▀ ██▌▒████▄    ▓  ██▒ ▓▒▒████▄    ▓█████▄ ▒████▄    ▒██    ▒ ▓█   ▀ ');
+}, 3750);
+setTimeout(() => {
 console.log('  ░██   █▌▒██  ▀█▄  ▒ ▓██░ ▒░▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄   ▒███   ');
+}, 4000);
+setTimeout(() => {
 console.log('  ░▓█▄   ▌░██▄▄▄▄██ ░ ▓██▓ ░ ░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▒▓█  ▄ ');
+}, 4250);
+setTimeout(() => {
 console.log('  ░▒████▓  ▓█   ▓██▒  ▒██▒ ░  ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒░▒████▒');
+}, 4500);
+setTimeout(() => {
 console.log('   ▒▒▓  ▒  ▒▒   ▓▒█░  ▒ ░░    ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░░ ▒░ ░');
+}, 4750);
+setTimeout(() => {
 console.log('   ░ ▒  ▒   ▒   ▒▒ ░    ░      ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░ ░ ░  ░');
+}, 5000);
+setTimeout(() => {
 console.log('   ░ ░  ░   ░   ▒     ░        ░   ▒    ░    ░   ░   ▒   ░  ░  ░     ░   ');
+}, 5250);
+setTimeout(() => {
 console.log('     ░          ░  ░               ░  ░ ░            ░  ░      ░     ░  ░');
+}, 5500);
+setTimeout(() => {
 console.log('   ░                                         ░                           ');
+}, 5750);
+
 };
                                                                   
   // Call the function when the application starts to show the Banner
