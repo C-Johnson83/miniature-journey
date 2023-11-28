@@ -11,79 +11,86 @@ const connection = mysql.createConnection({
   database: 'company_roster_db',
 });
 
-// Connect to the MySQL server
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to the MySQL server.\n');
-  startApp();
-});
 
 function printCompanyDatabaseBanner() {
   setTimeout(() => {
-console.log('   ▄████▄   ▒█████   ███▄ ▄███▓ ██▓███   ▄▄▄       ███▄    █ ▓██   ██▓   ');
-}, 1000);
+    console.log('    ');
+    console.log('     ');
+    console.log('   ▄████▄   ▒█████   ███▄ ▄███▓ ██▓███   ▄▄▄       ███▄    █ ▓██   ██▓   ');
+  }, 1000);
+  setTimeout(() => {
+    console.log('  ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓██░  ██▒▒████▄     ██ ▀█   █  ▒██  ██▒   ');
+  }, 1250);
+  setTimeout(() => {
+    console.log('  ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▓██░ ██▓▒▒██  ▀█▄  ▓██  ▀█ ██▒  ▒██ ██░   ');
+  }, 1500);
 setTimeout(() => {
-console.log('  ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓██░  ██▒▒████▄     ██ ▀█   █  ▒██  ██▒   ');
-}, 1250);
-setTimeout(() => {
-console.log('  ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▓██░ ██▓▒▒██  ▀█▄  ▓██  ▀█ ██▒  ▒██ ██░   ');
-}, 1500);
-setTimeout(() => {
-console.log('  ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▓██▒  ▐▌██▒  ░ ▐██▓░   ');
+  console.log('  ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ ▒██▄█▓▒ ▒░██▄▄▄▄██ ▓██▒  ▐▌██▒  ░ ▐██▓░   ');
 }, 1750);
 setTimeout(() => {
-console.log('  ▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒▒██▒ ░  ░ ▓█   ▓██▒▒██░   ▓██░  ░ ██▒▓░   ');
+  console.log('  ▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒▒██▒ ░  ░ ▓█   ▓██▒▒██░   ▓██░  ░ ██▒▓░   ');
 }, 2000);
 setTimeout(() => {
-console.log('  ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒    ██▒▒▒    ');
+  console.log('  ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒    ██▒▒▒    ');
 }, 2250);
 setTimeout(() => {
-console.log('    ░  ▒     ░ ▒ ▒░ ░  ░      ░░▒ ░       ▒   ▒▒ ░░ ░░   ░ ▒░ ▓██ ░▒░    ');
+  console.log('    ░  ▒     ░ ▒ ▒░ ░  ░      ░░▒ ░       ▒   ▒▒ ░░ ░░   ░ ▒░ ▓██ ░▒░    ');
 }, 2500);
 setTimeout(() => {
-console.log('  ░        ░ ░ ░ ▒  ░      ░   ░░         ░   ▒      ░   ░ ░  ▒ ▒ ░░     ');
+  console.log('  ░        ░ ░ ░ ▒  ░      ░   ░░         ░   ▒      ░   ░ ░  ▒ ▒ ░░     ');
 }, 2750);
 setTimeout(() => {
-console.log('  ░ ░          ░ ░         ░                  ░  ░         ░  ░ ░        ');
+  console.log('  ░ ░          ░ ░         ░                  ░  ░         ░  ░ ░        ');
 }, 3000);
 setTimeout(() => {
-console.log('  ░                                                           ░ ░        ');
+  console.log('  ░                                                           ░ ░        ');
 }, 3250);
 setTimeout(() => {
-console.log('  ▓█████▄  ▄▄▄      ▄▄▄█████▓ ▄▄▄       ▄▄▄▄    ▄▄▄        ██████ ▓█████ ');
+  console.log('  ▓█████▄  ▄▄▄      ▄▄▄█████▓ ▄▄▄       ▄▄▄▄    ▄▄▄        ██████ ▓█████ ');
 }, 3500);
 setTimeout(() => {
-console.log('  ▒██▀ ██▌▒████▄    ▓  ██▒ ▓▒▒████▄    ▓█████▄ ▒████▄    ▒██    ▒ ▓█   ▀ ');
+  console.log('  ▒██▀ ██▌▒████▄    ▓  ██▒ ▓▒▒████▄    ▓█████▄ ▒████▄    ▒██    ▒ ▓█   ▀ ');
 }, 3750);
 setTimeout(() => {
-console.log('  ░██   █▌▒██  ▀█▄  ▒ ▓██░ ▒░▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄   ▒███   ');
+  console.log('  ░██   █▌▒██  ▀█▄  ▒ ▓██░ ▒░▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄   ▒███   ');
 }, 4000);
 setTimeout(() => {
-console.log('  ░▓█▄   ▌░██▄▄▄▄██ ░ ▓██▓ ░ ░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▒▓█  ▄ ');
+  console.log('  ░▓█▄   ▌░██▄▄▄▄██ ░ ▓██▓ ░ ░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▒▓█  ▄ ');
 }, 4250);
 setTimeout(() => {
-console.log('  ░▒████▓  ▓█   ▓██▒  ▒██▒ ░  ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒░▒████▒');
+  console.log('  ░▒████▓  ▓█   ▓██▒  ▒██▒ ░  ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒░▒████▒');
 }, 4500);
 setTimeout(() => {
-console.log('   ▒▒▓  ▒  ▒▒   ▓▒█░  ▒ ░░    ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░░ ▒░ ░');
+  console.log('   ▒▒▓  ▒  ▒▒   ▓▒█░  ▒ ░░    ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░░ ▒░ ░');
 }, 4750);
 setTimeout(() => {
-console.log('   ░ ▒  ▒   ▒   ▒▒ ░    ░      ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░ ░ ░  ░');
+  console.log('   ░ ▒  ▒   ▒   ▒▒ ░    ░      ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░ ░ ░  ░');
 }, 5000);
 setTimeout(() => {
-console.log('   ░ ░  ░   ░   ▒     ░        ░   ▒    ░    ░   ░   ▒   ░  ░  ░     ░   ');
+  console.log('   ░ ░  ░   ░   ▒     ░        ░   ▒    ░    ░   ░   ▒   ░  ░  ░     ░   ');
 }, 5250);
 setTimeout(() => {
-console.log('     ░          ░  ░               ░  ░ ░            ░  ░      ░     ░  ░');
+  console.log('     ░          ░  ░               ░  ░ ░            ░  ░      ░     ░  ░');
 }, 5500);
 setTimeout(() => {
-console.log('   ░                                         ░                           ');
+  console.log('   ░                                         ░                           ');
+  console.log('     ');
+  console.log('     ');
 }, 5750);
 
 };
-                                                                  
-  // Call the function when the application starts to show the Banner
-  printCompanyDatabaseBanner();
+
+// Call the function when the application starts to show the Banner
+printCompanyDatabaseBanner();
+// Connect to the MySQL server
+
+connection.connect((err) => {
+  if (err) throw err;
+  console.log('Connected to the MySQL server.\n');
+  setTimeout(() => {
+  startApp();
+}, 6250);
+});
 // Function to start the application
 function startApp() {
   inquirer
@@ -146,7 +153,8 @@ function startApp() {
 // Implement the functions for each action 
 
 function viewDepartments() {
-    
+  console.log('     ');
+  console.log('     ');
     console.log('  ▓█████▄ ▓█████  ██▓███   ▄▄▄       ██▀███  ▄▄▄█████▓ ███▄ ▄███▓▓█████  ███▄    █ ▄▄▄█████▓  ██████   ');
     console.log('  ▒██▀ ██▌▓█   ▀ ▓██░  ██▒▒████▄    ▓██ ▒ ██▒▓  ██▒ ▓▒▓██▒▀█▀ ██▒▓█   ▀  ██ ▀█   █ ▓  ██▒ ▓▒▒██    ▒   ');
     console.log('  ░██   █▌▒███   ▓██░ ██▓▒▒██  ▀█▄  ▓██ ░▄█ ▒▒ ▓██░ ▒░▓██    ▓██░▒███   ▓██  ▀█ ██▒▒ ▓██░ ▒░░ ▓██▄     ');
@@ -157,6 +165,8 @@ function viewDepartments() {
     console.log('   ░ ░  ░    ░   ░░         ░   ▒     ░░   ░   ░      ░      ░      ░      ░   ░ ░   ░      ░  ░  ░    ');
     console.log('     ░       ░  ░               ░  ░   ░                     ░      ░  ░         ░                ░    ');
     console.log('   ░                                                                                                   ');
+    console.log('     ');
+    console.log('     ');
 
   // Implement code to view all departments from the database
   const query = 'SELECT * FROM department';
@@ -168,7 +178,8 @@ function viewDepartments() {
 }
 
 function viewRoles() {
-
+  console.log('     ');
+  console.log('     ');
     console.log('   ██▀███   ▒█████   ██▓    ▓█████   ██████  ');
     console.log('  ▓██ ▒ ██▒▒██▒  ██▒▓██▒    ▓█   ▀ ▒██    ▒  ');
     console.log('  ▓██ ░▄█ ▒▒██░  ██▒▒██░    ▒███   ░ ▓██▄    ');
@@ -178,7 +189,8 @@ function viewRoles() {
     console.log('    ░▒ ░ ▒░  ░ ▒ ▒░ ░ ░ ▒  ░ ░ ░  ░░ ░▒  ░ ░ ');
     console.log('    ░░   ░ ░ ░ ░ ▒    ░ ░      ░   ░  ░  ░   ');
     console.log('     ░         ░ ░      ░  ░   ░  ░      ░   ');
-    
+    console.log('     ');
+    console.log('     ');
  
   // Implement code to view all roles from the database
   const query = 'SELECT * FROM roles';
@@ -190,7 +202,8 @@ function viewRoles() {
 }
 
 function viewEmployees() {
-    
+  console.log('     ');
+  console.log('     ');
     console.log('  ▓█████  ███▄ ▄███▓ ██▓███   ██▓     ▒█████ ▓██   ██▓▓█████ ▓█████   ██████   ');
     console.log('  ▓█   ▀ ▓██▒▀█▀ ██▒▓██░  ██▒▓██▒    ▒██▒  ██▒▒██  ██▒▓█   ▀ ▓█   ▀ ▒██    ▒   ');
     console.log('  ▒███   ▓██    ▓██░▓██░ ██▓▒▒██░    ▒██░  ██▒ ▒██ ██░▒███   ▒███   ░ ▓██▄     ');
@@ -201,7 +214,8 @@ function viewEmployees() {
     console.log('     ░   ░      ░   ░░         ░ ░   ░ ░ ░ ▒  ▒ ▒ ░░     ░      ░   ░  ░  ░    ');
     console.log('     ░  ░       ░                ░  ░    ░ ░  ░ ░        ░  ░   ░  ░      ░    ');
     console.log('                                              ░ ░                              ');
-
+    console.log('     ');
+    console.log('     ');
   // Implement code to view all employees from the database
   const query = 'SELECT * FROM employee';
   connection.query(query, (err, res) => {
@@ -254,11 +268,34 @@ function addRole() {
         return true;
       },
     },
+    {
+      name: 'salary',
+      type: 'input',
+      message: 'Enter the salary of the role:',
+      validate: function (input) {
+        if (!input) {
+          return 'Please enter a salary for the role.';
+        }
+        return true;
+      },
+    },
+    {
+      name: 'roleDeptId',
+      type: 'input',
+      message: 'Enter the ID number of the department for the role:',
+      validate: function (input) {
+        if (!input) {
+          return 'Please enter a department ID.';
+        }
+        return true;
+      },
+    },
   ])
   .then((answer) => {
     // Once the user provides the role name, insert it into the database
-    const query = 'INSERT INTO roles (name) VALUES (?)';
-    connection.query(query, [answer.roleName], (err, res) => {
+    const query = 'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)';
+    connection.query(query, [answer.roleName, answer.salary, answer.roleDeptId], 
+      (err, res) => {
       if (err) throw err;
       console.log(`Role ${answer.roleName} added successfully!\n`);
       startApp(); // Go back to the main menu
