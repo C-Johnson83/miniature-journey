@@ -86,85 +86,12 @@ function printCompanyDatabaseBanner() {
     console.log('                                                                                                             ');
     console.log('                                                                                                             ');
     console.log('                                                                                                             ');
-    
+
   }, 1150);
 }
-
-// Call the function when the application starts to show the Banner
-printCompanyDatabaseBanner();
-// Connect to the MySQL server
-
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to the MySQL server.\n');
+function printCompanyDepartmentBanner() {
   setTimeout(() => {
-    startApp();
-  }, 1350);
-});
-// Function to start the application
-function startApp() {
-  inquirer
-    .prompt({
-      name: 'userChoice',
-      type: 'list',
-      message: '\x1b[96m What would you like to do?\x1b[0m',
-      choices: [
-        '\x1b[33m View all departments\x1b[0m',
-        '\x1b[31m View all roles\x1b[0m',
-        '\x1b[92m View all employees\x1b[0m',
-        '\x1b[33m Add a department\x1b[0m',
-        '\x1b[31m Add a role\x1b[0m',
-        '\x1b[92m Add an employee\x1b[0m',
-        '\x1b[96m Update an employee role\x1b[0m',
-        '\x1b[97m Exit\x1b[0m',
-      ],
-    })
-    .then((answer) => {
-      switch (answer.userChoice) {
-        case '\x1b[33m View all departments\x1b[0m':
-          viewDepartments();
-          break;
-
-        case '\x1b[31m View all roles\x1b[0m':
-          viewRoles();
-          break;
-
-        case '\x1b[92m View all employees\x1b[0m':
-          viewEmployees();
-          break;
-
-        case '\x1b[33m Add a department\x1b[0m':
-          addDepartment();
-          break;
-
-        case '\x1b[31m Add a role\x1b[0m':
-          addRole();
-          break;
-
-        case '\x1b[92m Add an employee\x1b[0m':
-          addEmployee();
-          break;
-
-        case '\x1b[96m Update an employee role\x1b[0m':
-          updateEmployeeRole();
-          break;
-
-        case '\x1b[97m Exit\x1b[0m':
-          connection.end();
-          break;
-
-        default:
-          console.log(`Invalid option: ${answer.userChoice}`);
-          break;
-      }
-    });
-}
-
-// Implement the functions for each action 
-
-function viewDepartments() {
-  setTimeout(() => { 
-    console.log('\x1b[33m                                                                                                                                                  ');
+    console.log('\x1b[93m                                                                                                                                                  ');
     console.log('                                                                                                                                                  ');
     console.log('                                                                                                                                                  ');
     console.log('                                                                                                                                                  ');
@@ -237,22 +164,10 @@ function viewDepartments() {
     console.log('                                                                                                                                                  ');
     console.log('                                                                                                                                                  ');
   }, 1150);
-  // Implement code to view all departments from the database
-  setTimeout(() => {
-    const query = 'SELECT id as ID, name as Name FROM department';
-    connection.query(query, (err, res) => {
-      if (err) throw err;
-      console.table(res, ['ID', 'Name']);
-      console.log('\x1b[0m')
-      startApp();
-    });
-  },1350);
 }
-
-function viewRoles() {
-
+function printCompanyRolesBanner() {
   setTimeout(() => {
-    console.log('\x1b[31m                                                                                              ');
+    console.log('\x1b[91m                                                                                              ');
     console.log('                                                                                              ');
     console.log('                                                                                              ');
     console.log('                                                                                              ');
@@ -325,20 +240,8 @@ function viewRoles() {
     console.log('                                                                                              ');
     console.log('                                                                                              ');
   }, 1150);
-  
-  // Implement code to view all roles from the database
-  setTimeout(() => {
-    const query = 'SELECT * FROM roles JOIN department ON roles.department_id = department.id';
-    connection.query(query, (err, res) => {
-      if (err) throw err;
-      console.table(res);
-      console.log('\x1b[0m');
-      startApp();
-    });
-  }, 1350);
 }
-
-function viewEmployees() {
+function printCompanyEmployeeBanner() {
   setTimeout(() => {
     console.log('\x1b[92m                                                                                                                          ');
     console.log('                                                                                                                          ');
@@ -364,7 +267,7 @@ function viewEmployees() {
   setTimeout(() => {
     console.log(' ▐░▌          ▐░▌       ▐░▌▐░▌   ▀   ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌   ▐░▌ ▐░▌ ▀▀▀▀█░█▀▀▀▀                               ');
   }, 400);
-  setTimeout(() => {                            
+  setTimeout(() => {
     console.log(' ▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌    ▐░▌▐░▌     ▐░▌                                   ');
   }, 450);
   setTimeout(() => {
@@ -412,15 +315,91 @@ function viewEmployees() {
     console.log('                                                                                                                          ');
     console.log('                                                                                                                          ');
     console.log('                                                                                                                          ');
-  }, 1150);                                                                               
+  }, 1150);
 
-  // Implement code to view all employees from the database
+}
+function init() {
+  // Call the function when the application starts to show the Banner
+  printCompanyDatabaseBanner();
+  // Connect to the MySQL server
+
+  connection.connect((err) => {
+    if (err) throw err;
+    console.log('Connected to the MySQL server.\n');
+    setTimeout(() => {
+      startApp();
+    }, 1350);
+  });
+}
+// Function to start the application
+function startApp() {
+  inquirer
+    .prompt({
+      name: 'userChoice',
+      type: 'list',
+      message: 'What would you like to do?',
+      choices: [
+        '\x1b[93m View all departments\x1b[0m',
+        '\x1b[93m Add a department\x1b[0m',
+        '\x1b[91m View all roles\x1b[0m',
+        '\x1b[91m Add a role\x1b[0m',
+        '\x1b[92m View all employees\x1b[0m',
+        '\x1b[92m Add an employee\x1b[0m',
+        '\x1b[92m Update an employee role\x1b[0m',
+        '\x1b[97m Exit\x1b[0m',
+      ],
+    })
+    .then((answer) => {
+      switch (answer.userChoice) {
+        case '\x1b[93m View all departments\x1b[0m':
+          viewDepartments();
+          break;
+
+        case '\x1b[91m View all roles\x1b[0m':
+          viewRoles();
+          break;
+
+        case '\x1b[92m View all employees\x1b[0m':
+          viewEmployees();
+          break;
+
+        case '\x1b[93m Add a department\x1b[0m':
+          addDepartment();
+          break;
+
+        case '\x1b[91m Add a role\x1b[0m':
+          addRole();
+          break;
+
+        case '\x1b[92m Add an employee\x1b[0m':
+          addEmployee();
+          break;
+
+        case '\x1b[96m Update an employee role\x1b[0m':
+          updateEmployeeRole();
+          break;
+
+        case '\x1b[97m Exit\x1b[0m':
+          connection.end();
+          break;
+
+        default:
+          console.log(`Invalid option: ${answer.userChoice}`);
+          break;
+      }
+    });
+}
+// Implement the functions for each action 
+
+function viewDepartments() {
+  printCompanyDepartmentBanner()
+  // Implement code to view all departments from the database
   setTimeout(() => {
-    const query = 'SELECT * FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ';
+    const query = 'SELECT id as ID, name as Name FROM department';
     connection.query(query, (err, res) => {
       if (err) throw err;
-      console.table(res)
-      console.log('\x1b[0m');
+      console.table(res);
+      console.log('\x1b[0m')
       startApp();
     });
   }, 1350);
@@ -433,10 +412,10 @@ function addDepartment() {
       {
         name: 'departmentName',
         type: 'input',
-        message: 'Enter the name of the department:',
+        message: '\x1b[93m Enter the name of the department:',
         validate: function (input) {
           if (!input) {
-            return 'Please enter a department name.';
+            return '\x1b[93m Please enter a department name.';
           }
           return true;
         },
@@ -447,12 +426,25 @@ function addDepartment() {
       const query = 'INSERT INTO department (name) VALUES (?)';
       connection.query(query, [answer.departmentName], (err, res) => {
         if (err) throw err;
-        console.log(`Department ${answer.departmentName} added successfully!\n`);
+        console.log(`\x1b[93m Department ${answer.departmentName} added successfully!\n\x1b[0m`);
         startApp(); // Go back to the main menu
       });
     });
 }
 
+function viewRoles() {
+  printCompanyRolesBanner()
+  // Implement code to view all roles from the database
+  setTimeout(() => {
+    const query = 'SELECT * FROM roles JOIN department ON roles.department_id = department.id';
+    connection.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      console.log('\x1b[0m');
+      startApp();
+    });
+  }, 1350);
+}
 
 function addRole() {
   // Implement code to add a role to the database
@@ -461,10 +453,10 @@ function addRole() {
       {
         name: 'roleName',
         type: 'input',
-        message: 'Enter the name of the role:',
+        message: '\x1b[91m Enter the name of the role:',
         validate: function (input) {
           if (!input) {
-            return 'Please enter a role name.';
+            return '\x1b[31m Please enter a role name.';
           }
           return true;
         },
@@ -472,10 +464,10 @@ function addRole() {
       {
         name: 'salary',
         type: 'input',
-        message: 'Enter the salary of the role:',
+        message: '\x1b[31m Enter the salary of the role:',
         validate: function (input) {
           if (!input) {
-            return 'Please enter a salary for the role.';
+            return '\x1b[31m Please enter a salary for the role.';
           }
           return true;
         },
@@ -483,10 +475,10 @@ function addRole() {
       {
         name: 'roleDeptId',
         type: 'input',
-        message: 'Enter the ID number of the department for the role:',
+        message: '\x1b[31m Enter the ID number of the department for the role:',
         validate: function (input) {
           if (!input) {
-            return 'Please enter a department ID.';
+            return '\x1b[31m Please enter a department ID.';
           }
           return true;
         },
@@ -498,10 +490,24 @@ function addRole() {
       connection.query(query, [answer.roleName, answer.salary, answer.roleDeptId],
         (err, res) => {
           if (err) throw err;
-          console.log(`Role ${answer.roleName} added successfully!\n`);
+          console.log(`\x1b[91m Role ${answer.roleName} added successfully!\n\x1b[0m]`);
           startApp(); // Go back to the main menu
         });
     });
+}
+
+function viewEmployees() {
+  printCompanyEmployeeBanner()
+  // Implement code to view all employees from the database
+  setTimeout(() => {
+    const query = 'SELECT first_name AS First_Name, last_name AS Last_Name, roles.title AS Job_Title, department.name AS Department, salary AS Salary FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ';
+    connection.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res)
+      console.log('\x1b[0m');
+      startApp();
+    });
+  }, 1350);
 }
 
 function addEmployee() {
@@ -511,10 +517,10 @@ function addEmployee() {
       {
         name: 'first_name',
         type: 'input',
-        message: 'Enter the first name of the employee:',
+        message: '\x1b[92m Enter the first name of the employee:',
         validate: function (input) {
           if (!input) {
-            return 'Please enter a first name.';
+            return '\x1b[92m Please enter a first name.';
           }
           return true;
         },
@@ -522,10 +528,10 @@ function addEmployee() {
       {
         name: 'last_name',
         type: 'input',
-        message: 'Enter the last name of the employee:',
+        message: '\x1b[92m Enter the last name of the employee:',
         validate: function (input) {
           if (!input) {
-            return 'Please enter a last name.';
+            return '\x1b[92m Please enter a last name.';
           }
           return true;
         },
@@ -533,10 +539,10 @@ function addEmployee() {
       {
         name: 'role_id',
         type: 'input',
-        message: 'Enter the role ID of the employee:',
+        message: '\x1b[92m Enter the role ID of the employee:',
         validate: function (input) {
           if (!input) {
-            return 'Please enter a role ID.';
+            return '\x1b[92m Please enter a role ID.';
           }
           return true;
         },
@@ -544,7 +550,7 @@ function addEmployee() {
       {
         name: 'manager_id',
         type: 'input',
-        message: 'Enter the manager ID of the employee (can be null for no manager):',
+        message: '\x1b[92m Enter the manager ID of the employee (can be null for no manager):',
       },
     ])
     .then((answers) => {
@@ -557,7 +563,7 @@ function addEmployee() {
         (err, res) => {
           if (err) throw err;
           console.log(
-            `Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
+            `\x1b[92m Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
           );
           startApp(); // Go back to the main menu
         }
@@ -568,3 +574,5 @@ function addEmployee() {
 function updateEmployeeRole() {
   // Implement code to update an employee's role in the database
 }
+
+init();
