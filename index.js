@@ -107,49 +107,49 @@ function startApp() {
     .prompt({
       name: 'userChoice',
       type: 'list',
-      message: 'What would you like to do?',
+      message: '\x1b[96m What would you like to do?\x1b[0m',
       choices: [
-        'View all departments',
-        'View all roles',
-        'View all employees',
-        'Add a department',
-        'Add a role',
-        'Add an employee',
-        'Update an employee role',
-        'Exit',
+        '\x1b[33m View all departments\x1b[0m',
+        '\x1b[31m View all roles\x1b[0m',
+        '\x1b[92m View all employees\x1b[0m',
+        '\x1b[33m Add a department\x1b[0m',
+        '\x1b[31m Add a role\x1b[0m',
+        '\x1b[92m Add an employee\x1b[0m',
+        '\x1b[96m Update an employee role\x1b[0m',
+        '\x1b[97m Exit\x1b[0m',
       ],
     })
     .then((answer) => {
       switch (answer.userChoice) {
-        case 'View all departments':
+        case '\x1b[33m View all departments\x1b[0m':
           viewDepartments();
           break;
 
-        case 'View all roles':
+        case '\x1b[31m View all roles\x1b[0m':
           viewRoles();
           break;
 
-        case 'View all employees':
+        case '\x1b[92m View all employees\x1b[0m':
           viewEmployees();
           break;
 
-        case 'Add a department':
+        case '\x1b[33m Add a department\x1b[0m':
           addDepartment();
           break;
 
-        case 'Add a role':
+        case '\x1b[31m Add a role\x1b[0m':
           addRole();
           break;
 
-        case 'Add an employee':
+        case '\x1b[92m Add an employee\x1b[0m':
           addEmployee();
           break;
 
-        case 'Update an employee role':
+        case '\x1b[96m Update an employee role\x1b[0m':
           updateEmployeeRole();
           break;
 
-        case 'Exit':
+        case '\x1b[97m Exit\x1b[0m':
           connection.end();
           break;
 
