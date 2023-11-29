@@ -447,6 +447,14 @@ function viewRoles() {
 }
 
 function addRole() {
+const deptQuery = 'SELECT id, name FROM department';
+// query department for department choices
+connection.query(deptQuery, (err,res) => {
+  if (err) throw err;
+  const choices = res.map(({id, name}) => ({
+  value: id, name})
+  )
+
   // Implement code to add a role to the database
   inquirer
     .prompt([
@@ -474,8 +482,9 @@ function addRole() {
       },
       {
         name: 'roleDeptId',
-        type: 'input',
-        message: '\x1b[31m Enter the ID number of the department for the role:',
+        type: 'list',
+        message: '\x1b[31m Select the name of the department for the role:',
+        choices: choices,
         validate: function (input) {
           if (!input) {
             return '\x1b[31m Please enter a department ID.';
@@ -494,7 +503,7 @@ function addRole() {
           startApp(); // Go back to the main menu
         });
     });
-}
+})}
 
 function viewEmployees() {
   printCompanyEmployeeBanner()
@@ -572,7 +581,17 @@ function addEmployee() {
 };
 
 function updateEmployeeRole() {
+  const empQuery = 'Select e.first_name, e.last_name From employee';
   // Implement code to update an employee's role in the database
+  inquirer
+    .prompt([
+      {
+        type: 'list',
+        name: 'employeeId',
+        message: 'Enter the ID of the employee you want to update:',
+chioces: empQuery
+      },
+    ])
 }
 
 init();
