@@ -1,6 +1,6 @@
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
-
+const cTable = require('console.table');
 
 // Create a MySQL connection
 const connection = mysql.createConnection({
@@ -85,7 +85,7 @@ function printCompanyDatabaseBanner() {
     console.log('                                                                                                             ');
     console.log('                                                                                                             ');
     console.log('                                                                                                             ');
-    console.log('                                                                                                             \x1b[0m');
+    console.log('                                                                                                             ');
     
   }, 1150);
 }
@@ -235,7 +235,7 @@ function viewDepartments() {
     console.log('  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀         ▀  ▀         ▀       ▀       ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀       ▀       ▀▀▀▀▀▀▀▀▀▀▀   ');
     console.log('                                                                                                                                                  ');
     console.log('                                                                                                                                                  ');
-    console.log('                                                                                                                                                  \x1b[0m');
+    console.log('                                                                                                                                                  ');
   }, 1150);
   // Implement code to view all departments from the database
   setTimeout(() => {
@@ -243,6 +243,7 @@ function viewDepartments() {
     connection.query(query, (err, res) => {
       if (err) throw err;
       console.table(res, ['ID', 'Name']);
+      console.log('\x1b[0m')
       startApp();
     });
   },1350);
@@ -322,15 +323,16 @@ function viewRoles() {
     console.log('    ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀                           ');
     console.log('                                                                                              ');
     console.log('                                                                                              ');
-    console.log('                                                                                              \x1b[0m');
+    console.log('                                                                                              ');
   }, 1150);
- 
+  
   // Implement code to view all roles from the database
   setTimeout(() => {
     const query = 'SELECT * FROM roles JOIN department ON roles.department_id = department.id';
     connection.query(query, (err, res) => {
       if (err) throw err;
       console.table(res);
+      console.log('\x1b[0m');
       startApp();
     });
   }, 1350);
@@ -409,7 +411,7 @@ function viewEmployees() {
     console.log('    ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀   ');
     console.log('                                                                                                                          ');
     console.log('                                                                                                                          ');
-    console.log('                                                                                                                          \x1b[0m');
+    console.log('                                                                                                                          ');
   }, 1150);                                                                               
 
   // Implement code to view all employees from the database
@@ -418,6 +420,7 @@ function viewEmployees() {
     connection.query(query, (err, res) => {
       if (err) throw err;
       console.table(res)
+      console.log('\x1b[0m');
       startApp();
     });
   }, 1350);
