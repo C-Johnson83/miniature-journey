@@ -564,11 +564,12 @@ function addEmployee() {
     ])
     .then((answers) => {
       // Once the user provides the employee information, insert it into the database
+      const managerId = answers.manager_id || null;
       const query =
         'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
       connection.query(
         query,
-        [answers.first_name, answers.last_name, answers.role_id, answers.manager_id],
+        [answers.first_name, answers.last_name, answers.role_id, managerId],
         (err, res) => {
           if (err) throw err;
           console.log(
