@@ -318,19 +318,6 @@ function printCompanyEmployeeBanner() {
   }, 1150);
 
 }
-function init() {
-  // Call the function when the application starts to show the Banner
-  printCompanyDatabaseBanner();
-  // Connect to the MySQL server
-
-  connection.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to the MySQL server.\n');
-    setTimeout(() => {
-      startApp();
-    }, 1350);
-  });
-}
 // Function to start the application
 function startApp() {
   inquirer
@@ -388,6 +375,19 @@ function startApp() {
           break;
       }
     });
+}
+function init() {
+  // Call the function when the application starts to show the Banner
+  printCompanyDatabaseBanner();
+  // Connect to the MySQL server
+
+  connection.connect((err) => {
+    if (err) throw err;
+    console.log('Connected to the MySQL server.\n');
+    setTimeout(() => {
+      startApp();
+    }, 1350);
+  });
 }
 // Implement the functions for each action 
 
@@ -487,7 +487,7 @@ connection.query(deptQuery, (err,res) => {
         choices: choices,
         validate: function (input) {
           if (!input) {
-            return '\x1b[31m Please enter a department ID.';
+            return '\x1b[31m Please select a department.';
           }
           return true;
         },
@@ -520,6 +520,16 @@ function viewEmployees() {
 }
 
 function addEmployee() {
+  const roleQuery = 'SELECT id, title, e.manager_id AS manager_id FROM roles JOIN employee ON employee(id)';
+  // query roloes for role choices
+connection.query(roleQuery, (err,res) => {
+  if (err) throw err;
+  const choices = res.map(({id, title}) => ({
+  value: id + ' ' + title})
+  )
+  const managerChoices = res.map(({id, manager_id}) => ({
+    value: id + ' ' + manager_id})
+  )
   // Implement code to add an employee to the database
   inquirer
     .prompt([
@@ -547,19 +557,21 @@ function addEmployee() {
       },
       {
         name: 'role_id',
-        type: 'input',
-        message: '\x1b[92m Enter the role ID of the employee:',
+        type: 'list',
+        message: '\x1b[92m Select the role of the employee:',
+        choices: choices,
         validate: function (input) {
           if (!input) {
-            return '\x1b[92m Please enter a role ID.';
+            return '\x1b[92m Please select a role.';
           }
           return true;
         },
       },
       {
         name: 'manager_id',
-        type: 'input',
+        type: 'list',
         message: '\x1b[92m Enter the manager ID of the employee (can be null for no manager):',
+        choices: managerChoices,
       },
     ])
     .then((answers) => {
@@ -569,7 +581,7 @@ function addEmployee() {
         'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
       connection.query(
         query,
-        [answers.first_name, answers.last_name, answers.role_id, managerId],
+        [answers.first_name, answers.last_name, answers.role_id[0], managerId],
         (err, res) => {
           if (err) throw err;
           console.log(
@@ -579,7 +591,8 @@ function addEmployee() {
         }
       );
     });
-};
+})
+}
 
 function updateEmployeeRole() {
   const empQuery = 'Select e.first_name, e.last_name From employee';
