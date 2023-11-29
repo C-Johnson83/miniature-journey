@@ -436,7 +436,7 @@ function viewRoles() {
   printCompanyRolesBanner()
   // Implement code to view all roles from the database
   setTimeout(() => {
-    const query = 'SELECT * FROM roles JOIN department ON roles.department_id = department.id';
+    const query = 'SELECT roles.id, title AS Job_Title, salary AS Salary, department.name as Department_Name FROM roles JOIN department ON roles.department_id = department.id ORDER BY roles.id ASC';
     connection.query(query, (err, res) => {
       if (err) throw err;
       console.table(res);
@@ -499,8 +499,8 @@ function addRole() {
 function viewEmployees() {
   printCompanyEmployeeBanner()
   // Implement code to view all employees from the database
-  setTimeout(() => {
-    const query = 'SELECT first_name AS First_Name, last_name AS Last_Name, roles.title AS Job_Title, department.name AS Department, salary AS Salary FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ';
+  setTimeout(() => { 
+    const query = 'SELECT employee.id AS ID, first_name AS First_Name, last_name AS Last_Name, roles.title AS Job_Title, department.name AS Department, salary AS Salary, manager_id AS MANAGER FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ORDER BY employee.id ASC'; // JOIN employee ON employee.manager_id = employee(id)
     connection.query(query, (err, res) => {
       if (err) throw err;
       console.table(res)
