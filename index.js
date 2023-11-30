@@ -363,7 +363,7 @@ function startApp() {
           addEmployee();
           break;
 
-        case '\x1b[96m Update an employee role\x1b[0m':
+        case '\x1b[92m Update an employee role\x1b[0m':
           updateEmployeeRole();
           break;
 
@@ -597,75 +597,59 @@ connection.query(roleQuery, (err,res) => {
 }
 
 function updateEmployeeRole() {
-  const empQuery = 'SELECT roles.id, roles.title, employee.id AS eId, employee.first_name, employee.last_name FROM roles LEFT JOIN employee ON roles.id = employee.role_id';
-    // query roloes for role choices
-connection.query(empQuery, (err,res) => {
-  if (err) throw err;
-  const choices = res.map(({id, title}) => ({
-  value: id + ' ' + title})
-  )
-  // Implement code to update an employee's role in the database
-  inquirer
-    .prompt([
-      {
-        name: 'first_name',
-        type: 'input',
-        message: '\x1b[92m Enter the first name of the employee:',
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[92m Please enter a first name.';
-          }
-          return true;
+  const empQuery =
+    'SELECT employee.id AS employeeId, employee.first_name, employee.last_name, roles.id AS roleId, roles.title, employee.manager_id FROM employee LEFT JOIN roles ON employee.role_id = roles.id';
+
+  // Query roles for role choices and employee information
+  connection.query(empQuery, (err, res) => {
+    if (err) throw err;
+
+    const employeeChoices = res.map(({ employeeId, first_name, last_name, roleId, title, manager_id }) => ({
+      value: employeeId,
+      name: `${first_name} ${last_name} (Current Role: ${title}, Current Manager ID: ${manager_id || 'None'})`,
+    }));
+
+    const roleChoices = res.map(({ roleId, title }) => ({
+      value: roleId,
+      name: title,
+    }));
+
+    // Implement code to update an employee's role and manager ID in the database
+    inquirer
+      .prompt([
+        {
+          type: 'list',
+          name: 'employeeId',
+          message: 'Select the employee you want to update:',
+          choices: employeeChoices,
         },
-      },
-      {
-        name: 'last_name',
-        type: 'input',
-        message: '\x1b[92m Enter the last name of the employee:',
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[92m Please enter a last name.';
-          }
-          return true;
+        {
+          type: 'list',
+          name: 'newRoleId',
+          message: 'Select the new role for the employee:',
+          choices: roleChoices,
         },
-      },
-      {
-        name: 'role_id',
-        type: 'list',
-        message: '\x1b[92m Enter the new role for the employee:',
-        choices: choices,
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[92m Please enter a role.';
-          }
-          return true;
+        {
+          type: 'input',
+          name: 'newManagerId',
+          message: 'Enter the new manager ID for the employee (can be null for no manager):',
         },
-      },
-      {
-        name: 'manager_id',
-        type: 'list',
-        message: '\x1b[92m Enter the manager ID of the employee (can be null for no manager):',
-        choices: managerChoices,
-      },
-    ])
-    .then((answers) => {
-      // Once the user provides the employee information, insert it into the database
-      // const managerId = answers.manager_id || null;
-      const query =
-        'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
-      connection.query(
-        query,
-        [answers.first_name, answers.last_name, answers.role_id[0], managerId],
-        (err, res) => {
-          if (err) throw err;
-          console.log(
-            `\x1b[92m Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
-          );
-          startApp(); // Go back to the main menu
-        }
-      );
-    });
-})
+      ])
+      .then((answers) => {
+        const query = 'UPDATE employee SET role_id = ?, manager_id = ? WHERE id = ?';
+        connection.query(
+          query,
+          [answers.newRoleId, answers.newManagerId || null, answers.employeeId],
+          (updateErr, updateRes) => {
+            if (updateErr) throw updateErr;
+            console.log('Employee role and manager ID updated successfully!');
+            startApp(); // Go back to the main menu or perform other actions
+          }
+        );
+      });
+  });
 }
+
+
 
 init();
