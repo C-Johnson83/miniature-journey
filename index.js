@@ -2,7 +2,6 @@ const mysql = require('mysql2');
 const inquirer = require('inquirer');
 require('console.table');
 
-
 // Create a MySQL connection
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -90,6 +89,7 @@ function printCompanyDatabaseBanner() {
 
   }, 1150);
 }
+
 function printCompanyDepartmentBanner() {
   setTimeout(() => {
     console.log('\x1b[93m                                                                                                                                                  ');
@@ -166,6 +166,7 @@ function printCompanyDepartmentBanner() {
     console.log('                                                                                                                                                  ');
   }, 1150);
 }
+
 function printCompanyRolesBanner() {
   setTimeout(() => {
     console.log('\x1b[91m                                                                                              ');
@@ -242,6 +243,7 @@ function printCompanyRolesBanner() {
     console.log('                                                                                              ');
   }, 1150);
 }
+
 function printCompanyEmployeeBanner() {
   setTimeout(() => {
     console.log('\x1b[92m                                                                                                                          ');
@@ -319,6 +321,7 @@ function printCompanyEmployeeBanner() {
   }, 1150);
 
 }
+
 // Function to start the application
 function startApp() {
   inquirer
@@ -377,6 +380,7 @@ function startApp() {
       }
     });
 }
+
 function init() {
   // Call the function when the application starts to show the Banner
   printCompanyDatabaseBanner();
@@ -390,8 +394,8 @@ function init() {
     }, 1350);
   });
 }
-// Implement the functions for each action 
 
+// Implement the functions for each action 
 function viewDepartments() {
   printCompanyDepartmentBanner()
   // Implement code to view all departments from the database
@@ -427,7 +431,7 @@ function addDepartment() {
       const query = 'INSERT INTO department (name) VALUES (?)';
       connection.query(query, [answer.departmentName], (err, res) => {
         if (err) throw err;
-        console.log(`\x1b[93m Department ${answer.departmentName} added successfully!\n\x1b[0m`);
+        console.log(`\x1b[93m Department \x1b[34m ${answer.departmentName} \x1b[93m added successfully!\n\x1b[0m`);
         startApp(); // Go back to the main menu
       });
     });
@@ -500,11 +504,12 @@ connection.query(deptQuery, (err,res) => {
       connection.query(query, [answer.roleName, answer.salary, answer.roleDeptId],
         (err, res) => {
           if (err) throw err;
-          console.log(`\x1b[91m Role ${answer.roleName} added successfully!\n\x1b[0m]`);
+          console.log(`\x1b[91m Role \x1b[34m${answer.roleName} \x1b[91madded successfully!\n\x1b[0m]`);
           startApp(); // Go back to the main menu
         });
     });
-})}
+})
+}
 
 function viewEmployees() {
   printCompanyEmployeeBanner();
@@ -599,7 +604,7 @@ function addEmployee() {
           (err, res) => {
             if (err) throw err;
             console.log(
-              `\x1b[92m Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
+              `\x1b[92m Employee \x1b[34m${answers.first_name} ${answers.last_name} \x1b[92m added successfully!\n`
             );
             startApp(); // Go back to the main menu
           }
@@ -681,9 +686,5 @@ function updateEmployeeRole() {
     });
   });
 }
-
-
-
-
 
 init();
