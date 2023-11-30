@@ -18,14 +18,14 @@ VALUES
   ("Truck Loader", 50000.00, 2),
   ("Quality Control Manager", 110000.00, 4),
   ("Quality Captain", 95500.00, 4),
-  ("Warehouse Auditor", 80000.00, 4),
+  ("Warehouse Auditor", 80000.00, 4);
 
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
-  ("Abigail", "Reed", 1, NULL),
+  ("Abigail", "Reed", 2, 1),
   ("Aiden", "Taylor", 2, 1),
-  ("Alice", "Smith", 2, 1),
+  ("Alice", "Smith", 1, NULL),
   ("Ava", "Parker", 3, 1),
   ("Bob", "Johnson", 3, 1),
   ("Caleb", "Rivera", 4, NULL),
