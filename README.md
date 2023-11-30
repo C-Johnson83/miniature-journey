@@ -78,7 +78,13 @@ To install the miniature-journey, follow these steps:
 10. To preload the database  
     ```bash
     source db/seeds.sql;  
-11. Exit mysql  
+11. Switch to the database to check the data if needed
+    ```bash
+    USE company_roster_db;  
+12. Check the employee table to confirm the seed data populated  
+    ```bash
+    SELECT * FROM employee;  
+13. Exit mysql after confirming the seed data  
     ```bash
     exit;  
 ## Usage  
@@ -142,8 +148,9 @@ https://opensource.org/licenses/MIT
 ## Walkthrough Video
 You can watch a walkthrough video demonstrating how to use the application and showcasing it's functionality by clicking the link below. 
 
-### Video example
-
+### Demo
+![Alt text](assets/images/Demo.png)
+https://watch.screencastify.com/v/hCjjemZXyragrzTFCEDD
 
 
 
