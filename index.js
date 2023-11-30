@@ -534,11 +534,15 @@ function addEmployee() {
       value: id + ' ' + title,
     }));
 
-    const managerChoices = res
-      .filter((employee) => employee.eId) // Filter out employees without a manager
-      .map(({ eId, first_name, title, last_name }) => ({
-        value: eId + ' ' + title + ' ' + first_name + ' ' + last_name,
-      }));
+    const managerChoices = [
+      // add a null value using the spread operator
+      { value: null, name: 'No Manager' },
+      ...res
+        .filter((employee) => employee.eId) // Filter out employees without a manager
+        .map(({ eId, first_name, title, last_name }) => ({
+          value: eId + ' ' + title + ' ' + first_name + ' ' + last_name,
+        })),
+    ];
 
     // Implement code to add an employee to the database
     inquirer
@@ -586,7 +590,7 @@ function addEmployee() {
       ])
       .then((answers) => {
         // Once the user provides the employee information, insert it into the database
-        const managerId = answers.manager_id.split(' ')[0] || null;
+        const managerId = answers.manager_id === null ? null : answers.manager_id.split(' ')[0];
         const query =
           'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
         connection.query(
