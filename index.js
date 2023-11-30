@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const cTable = require('console.table');
-const { default: Choices } = require('inquirer/lib/objects/choices');
+require('console.table');
+
 
 // Create a MySQL connection
 const connection = mysql.createConnection({
@@ -507,13 +507,15 @@ connection.query(deptQuery, (err,res) => {
 })}
 
 function viewEmployees() {
-  printCompanyEmployeeBanner()
+  printCompanyEmployeeBanner();
   // Implement code to view all employees from the database
-  setTimeout(() => { 
-    const query = 'SELECT employee.id AS ID, first_name AS First_Name, last_name AS Last_Name, roles.title AS Job_Title, department.name AS Department, salary AS Salary, manager_id AS MANAGER FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ORDER BY employee.id ASC'; // JOIN employee ON employee.manager_id = employee(id)
+  setTimeout(() => {
+    const query =
+      'SELECT employee.id AS ID, employee.first_name AS First_Name, employee.last_name AS Last_Name, roles.title AS Job_Title, department.name AS Department, salary AS Salary, CONCAT(manager.first_name, " ", manager.last_name) AS Manager_Name FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id LEFT JOIN employee AS manager ON employee.manager_id = manager.id ORDER BY employee.id ASC';
+
     connection.query(query, (err, res) => {
       if (err) throw err;
-      console.table(res)
+      console.table(res);
       console.log('\x1b[0m');
       startApp();
     });
@@ -521,134 +523,162 @@ function viewEmployees() {
 }
 
 function addEmployee() {
-  const roleQuery = 'SELECT roles.id, roles.title, employee.id AS eId, employee.first_name, employee.last_name FROM roles LEFT JOIN employee ON roles.id = employee.role_id';
+  const roleQuery =
+    'SELECT roles.id, roles.title, employee.id AS eId, employee.first_name, employee.last_name FROM roles LEFT JOIN employee ON roles.id = employee.role_id';
 
-  // query roloes for role choices
-connection.query(roleQuery, (err,res) => {
-  if (err) throw err;
-  const choices = res.map(({id, title}) => ({
-  value: id + ' ' + title})
-  )
-  const managerChoices = res.map(({ eId, first_name, title, last_name}) => ({
-    value: eId + ' '+ title + ' ' + first_name +' '+ last_name})
-  )
-  // Implement code to add an employee to the database
-  inquirer
-    .prompt([
-      {
-        name: 'first_name',
-        type: 'input',
-        message: '\x1b[92m Enter the first name of the employee:',
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[92m Please enter a first name.';
-          }
-          return true;
-        },
-      },
-      {
-        name: 'last_name',
-        type: 'input',
-        message: '\x1b[92m Enter the last name of the employee:',
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[92m Please enter a last name.';
-          }
-          return true;
-        },
-      },
-      {
-        name: 'role_id',
-        type: 'list',
-        message: '\x1b[92m Select the role of the employee:',
-        choices: choices,
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[92m Please select a role.';
-          }
-          return true;
-        },
-      },
-      {
-        name: 'manager_id',
-        type: 'list',
-        message: '\x1b[92m Enter the manager ID of the employee (can be null for no manager):',
-        choices: managerChoices,
-      },
-    ])
-    .then((answers) => {
-      // Once the user provides the employee information, insert it into the database
-      const managerId = answers.manager_id[0] || null;
-      const query =
-        'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
-      connection.query(
-        query,
-        [answers.first_name, answers.last_name, answers.role_id[0], managerId],
-        (err, res) => {
-          if (err) throw err;
-          console.log(
-            `\x1b[92m Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
-          );
-          startApp(); // Go back to the main menu
-        }
-      );
-    });
-})
-}
-
-function updateEmployeeRole() {
-  const empQuery =
-    'SELECT employee.id AS employeeId, employee.first_name, employee.last_name, roles.id AS roleId, roles.title, employee.manager_id FROM employee LEFT JOIN roles ON employee.role_id = roles.id';
-
-  // Query roles for role choices and employee information
-  connection.query(empQuery, (err, res) => {
+  // query roles for role choices
+  connection.query(roleQuery, (err, res) => {
     if (err) throw err;
 
-    const employeeChoices = res.map(({ employeeId, first_name, last_name, roleId, title, manager_id }) => ({
-      value: employeeId,
-      name: `${first_name} ${last_name} (Current Role: ${title}, Current Manager ID: ${manager_id || 'None'})`,
+    const choices = res.map(({ id, title }) => ({
+      value: id + ' ' + title,
     }));
 
-    const roleChoices = res.map(({ roleId, title }) => ({
-      value: roleId,
-      name: title,
-    }));
+    const managerChoices = res
+      .filter((employee) => employee.eId) // Filter out employees without a manager
+      .map(({ eId, first_name, title, last_name }) => ({
+        value: eId + ' ' + title + ' ' + first_name + ' ' + last_name,
+      }));
 
-    // Implement code to update an employee's role and manager ID in the database
+    // Implement code to add an employee to the database
     inquirer
       .prompt([
         {
-          type: 'list',
-          name: 'employeeId',
-          message: 'Select the employee you want to update:',
-          choices: employeeChoices,
-        },
-        {
-          type: 'list',
-          name: 'newRoleId',
-          message: 'Select the new role for the employee:',
-          choices: roleChoices,
-        },
-        {
+          name: 'first_name',
           type: 'input',
-          name: 'newManagerId',
-          message: 'Enter the new manager ID for the employee (can be null for no manager):',
+          message: '\x1b[92m Enter the first name of the employee:',
+          validate: function (input) {
+            if (!input) {
+              return '\x1b[92m Please enter a first name.';
+            }
+            return true;
+          },
+        },
+        {
+          name: 'last_name',
+          type: 'input',
+          message: '\x1b[92m Enter the last name of the employee:',
+          validate: function (input) {
+            if (!input) {
+              return '\x1b[92m Please enter a last name.';
+            }
+            return true;
+          },
+        },
+        {
+          name: 'role_id',
+          type: 'list',
+          message: '\x1b[92m Select the role of the employee:',
+          choices: choices,
+          validate: function (input) {
+            if (!input) {
+              return '\x1b[92m Please select a role.';
+            }
+            return true;
+          },
+        },
+        {
+          name: 'manager_id',
+          type: 'list',
+          message: '\x1b[92m Select the manager of the employee (can be null for no manager):',
+          choices: managerChoices,
         },
       ])
       .then((answers) => {
-        const query = 'UPDATE employee SET role_id = ?, manager_id = ? WHERE id = ?';
+        // Once the user provides the employee information, insert it into the database
+        const managerId = answers.manager_id.split(' ')[0] || null;
+        const query =
+          'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
         connection.query(
           query,
-          [answers.newRoleId, answers.newManagerId || null, answers.employeeId],
-          (updateErr, updateRes) => {
-            if (updateErr) throw updateErr;
-            console.log('Employee role and manager ID updated successfully!');
-            startApp(); // Go back to the main menu or perform other actions
+          [answers.first_name, answers.last_name, answers.role_id.split(' ')[0], managerId],
+          (err, res) => {
+            if (err) throw err;
+            console.log(
+              `\x1b[92m Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
+            );
+            startApp(); // Go back to the main menu
           }
         );
       });
   });
 }
+
+function updateEmployeeRole() {
+  // Query roles for role choices
+  const rolesQuery = 'SELECT id AS roleId, title FROM roles';
+
+  connection.query(rolesQuery, (rolesErr, rolesRes) => {
+    if (rolesErr) throw rolesErr;
+
+    const roleChoices = rolesRes.map(({ roleId, title }) => ({
+      value: roleId,
+      name: title,
+    }));
+
+    // Query employees and their roles for employee choices
+    const empQuery =
+      'SELECT employee.id AS employeeId, employee.first_name, employee.last_name, roles.id AS roleId, roles.title, employee.manager_id AS mId FROM employee LEFT JOIN roles ON employee.role_id = roles.id';
+
+    connection.query(empQuery, (empErr, empRes) => {
+      if (empErr) throw empErr;
+
+      const employeeChoices = empRes.map(({ employeeId, first_name, last_name, roleId, title, mId }) => ({
+        value: employeeId,
+        name: `${first_name} ${last_name} (Current Role: ${title}, Current Manager ID: ${mId || 'None'})`,
+      }));
+
+      // Query managers for manager choices
+      const managersQuery = 'SELECT id AS managerId, first_name, last_name FROM employee WHERE id IN (SELECT DISTINCT manager_id FROM employee)';
+      
+      connection.query(managersQuery, (managersErr, managersRes) => {
+        if (managersErr) throw managersErr;
+
+        const managerChoices = managersRes.map(({ managerId, first_name, last_name }) => ({
+          value: managerId,
+          name: `${first_name} ${last_name} (Manager ID: ${managerId})`,
+        }));
+
+        // Implement code to update an employee's role and manager ID in the database
+        inquirer
+          .prompt([
+            {
+              type: 'list',
+              name: 'employeeId',
+              message: 'Select the employee you want to update:',
+              choices: employeeChoices,
+            },
+            {
+              type: 'list',
+              name: 'newRoleId',
+              message: 'Select the new role for the employee:',
+              choices: roleChoices,
+            },
+            {
+              type: 'list',
+              name: 'newManagerId',
+              message: 'Enter the new manager ID for the employee (can be null for no manager):',
+              choices: managerChoices,
+            },
+          ])
+          .then((answers) => {
+            const query = 'UPDATE employee SET role_id = ?, manager_id = ? WHERE id = ?';
+            connection.query(
+              query,
+              [answers.newRoleId, answers.newManagerId || null, answers.employeeId],
+              (updateErr, updateRes) => {
+                if (updateErr) throw updateErr;
+                console.log('Employee role and manager ID updated successfully!');
+                startApp(); // Go back to the main menu or perform other actions
+              }
+            );
+          });
+      });
+    });
+  });
+}
+
+
 
 
 
