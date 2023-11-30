@@ -332,11 +332,14 @@ function startApp() {
       choices: [
         '\x1b[93m View all departments\x1b[0m',
         '\x1b[93m Add a department\x1b[0m',
+        '\x1b[93m Delete a department\x1b[0m',
         '\x1b[91m View all roles\x1b[0m',
         '\x1b[91m Add a role\x1b[0m',
+        '\x1b[91m Delete a role\x1b[0m',
         '\x1b[92m View all employees\x1b[0m',
         '\x1b[92m Add an employee\x1b[0m',
         '\x1b[92m Update an employee role\x1b[0m',
+        '\x1b[92m Delete an employee\x1b[0m',
         '\x1b[97m Exit\x1b[0m',
       ],
     })
@@ -368,6 +371,18 @@ function startApp() {
 
         case '\x1b[92m Update an employee role\x1b[0m':
           updateEmployeeRole();
+          break;
+
+        case '\x1b[93m Delete a department\x1b[0m':
+          deleteDepartment();
+          break; 
+
+        case '\x1b[91m Delete a role\x1b[0m':
+          deleteRole();
+          break;
+
+        case '\x1b[92m Delete an employee\x1b[0m':
+          deleteEmployee();
           break;
 
         case '\x1b[97m Exit\x1b[0m':
@@ -435,6 +450,39 @@ function addDepartment() {
         startApp(); // Go back to the main menu
       });
     });
+}
+
+function deleteDepartment() {
+  // Query departments for deletion choices
+  const departmentQuery = 'SELECT * FROM department';
+
+  connection.query(departmentQuery, (err, res) => {
+    if (err) throw err;
+
+    const departmentChoices = res.map(({ id, name }) => ({
+      value: id,
+      name: name,
+    }));
+
+    // Implement code to delete a department from the database
+    inquirer
+      .prompt([
+        {
+          name: 'department_id',
+          type: 'list',
+          message: '\x1b[93m Select the department to delete:',
+          choices: departmentChoices,
+        },
+      ])
+      .then((answers) => {
+        const query = 'DELETE FROM department WHERE id = ?';
+        connection.query(query, [answers.department_id], (err, res) => {
+          if (err) throw err;
+          console.log('\x1b[93m Department deleted successfully!\n');
+          startApp(); // Go back to the main menu
+        });
+      });
+  });
 }
 
 function viewRoles() {
@@ -508,8 +556,7 @@ connection.query(deptQuery, (err,res) => {
           startApp(); // Go back to the main menu
         });
     });
-})
-}
+})}
 
 function viewEmployees() {
   printCompanyEmployeeBanner();
@@ -686,5 +733,9 @@ function updateEmployeeRole() {
     });
   });
 }
+
+
+
+
 
 init();
