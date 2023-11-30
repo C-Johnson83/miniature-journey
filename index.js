@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
+const { default: Choices } = require('inquirer/lib/objects/choices');
 
 // Create a MySQL connection
 const connection = mysql.createConnection({
@@ -520,15 +521,16 @@ function viewEmployees() {
 }
 
 function addEmployee() {
-  const roleQuery = 'SELECT id, title, e.manager_id AS manager_id FROM roles JOIN employee ON employee(id)';
+  const roleQuery = 'SELECT roles.id, roles.title, employee.id AS eId, employee.first_name, employee.last_name FROM roles LEFT JOIN employee ON roles.id = employee.role_id';
+
   // query roloes for role choices
 connection.query(roleQuery, (err,res) => {
   if (err) throw err;
   const choices = res.map(({id, title}) => ({
   value: id + ' ' + title})
   )
-  const managerChoices = res.map(({id, manager_id}) => ({
-    value: id + ' ' + manager_id})
+  const managerChoices = res.map(({ eId, first_name, title, last_name}) => ({
+    value: eId + ' '+ title + ' ' + first_name +' '+ last_name})
   )
   // Implement code to add an employee to the database
   inquirer
@@ -576,7 +578,7 @@ connection.query(roleQuery, (err,res) => {
     ])
     .then((answers) => {
       // Once the user provides the employee information, insert it into the database
-      const managerId = answers.manager_id || null;
+      const managerId = answers.manager_id[0] || null;
       const query =
         'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
       connection.query(
@@ -595,17 +597,75 @@ connection.query(roleQuery, (err,res) => {
 }
 
 function updateEmployeeRole() {
-  const empQuery = 'Select e.first_name, e.last_name From employee';
+  const empQuery = 'SELECT roles.id, roles.title, employee.id AS eId, employee.first_name, employee.last_name FROM roles LEFT JOIN employee ON roles.id = employee.role_id';
+    // query roloes for role choices
+connection.query(empQuery, (err,res) => {
+  if (err) throw err;
+  const choices = res.map(({id, title}) => ({
+  value: id + ' ' + title})
+  )
   // Implement code to update an employee's role in the database
   inquirer
     .prompt([
       {
+        name: 'first_name',
+        type: 'input',
+        message: '\x1b[92m Enter the first name of the employee:',
+        validate: function (input) {
+          if (!input) {
+            return '\x1b[92m Please enter a first name.';
+          }
+          return true;
+        },
+      },
+      {
+        name: 'last_name',
+        type: 'input',
+        message: '\x1b[92m Enter the last name of the employee:',
+        validate: function (input) {
+          if (!input) {
+            return '\x1b[92m Please enter a last name.';
+          }
+          return true;
+        },
+      },
+      {
+        name: 'role_id',
         type: 'list',
-        name: 'employeeId',
-        message: 'Enter the ID of the employee you want to update:',
-chioces: empQuery
+        message: '\x1b[92m Enter the new role for the employee:',
+        choices: choices,
+        validate: function (input) {
+          if (!input) {
+            return '\x1b[92m Please enter a role.';
+          }
+          return true;
+        },
+      },
+      {
+        name: 'manager_id',
+        type: 'list',
+        message: '\x1b[92m Enter the manager ID of the employee (can be null for no manager):',
+        choices: managerChoices,
       },
     ])
+    .then((answers) => {
+      // Once the user provides the employee information, insert it into the database
+      // const managerId = answers.manager_id || null;
+      const query =
+        'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
+      connection.query(
+        query,
+        [answers.first_name, answers.last_name, answers.role_id[0], managerId],
+        (err, res) => {
+          if (err) throw err;
+          console.log(
+            `\x1b[92m Employee ${answers.first_name} ${answers.last_name} added successfully!\n`
+          );
+          startApp(); // Go back to the main menu
+        }
+      );
+    });
+})
 }
 
 init();
