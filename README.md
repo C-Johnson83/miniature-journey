@@ -105,6 +105,16 @@ Add Department, Role, and Employee:
 - Users can add a new employee by providing their first name, last name, role, and manager information.  
 - Users can update an employee's role by selecting the employee and specifying the new role.
 
+### Future Development/Bonus
+Try to add some additional functionality, such as the ability to do the following:
+
+- Update employee managers.
+- View employees by manager.
+- View employees by department.
+- Delete departments, roles, and employees.
+- View the total utilized budget of a department—in other words, the combined salaries of all employees in that department.
+
+
 
 ## Contributing
 If you'd like to contribute to this project, please follow these guidelines:  
