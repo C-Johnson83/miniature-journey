@@ -375,7 +375,7 @@ function startApp() {
 
         case '\x1b[93m Delete a department\x1b[0m':
           deleteDepartment();
-          break; 
+          break;
 
         case '\x1b[91m Delete a role\x1b[0m':
           deleteRole();
@@ -500,63 +500,65 @@ function viewRoles() {
 }
 
 function addRole() {
-const deptQuery = 'SELECT id, name FROM department';
-// query department for department choices
-connection.query(deptQuery, (err,res) => {
-  if (err) throw err;
-  const choices = res.map(({id, name}) => ({
-  value: id, name})
-  )
+  const deptQuery = 'SELECT id, name FROM department';
+  // query department for department choices
+  connection.query(deptQuery, (err, res) => {
+    if (err) throw err;
+    const choices = res.map(({ id, name }) => ({
+      value: id, name
+    })
+    )
 
-  // Implement code to add a role to the database
-  inquirer
-    .prompt([
-      {
-        name: 'roleName',
-        type: 'input',
-        message: '\x1b[91m Enter the name of the role:',
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[31m Please enter a role name.';
-          }
-          return true;
+    // Implement code to add a role to the database
+    inquirer
+      .prompt([
+        {
+          name: 'roleName',
+          type: 'input',
+          message: '\x1b[91m Enter the name of the role:',
+          validate: function (input) {
+            if (!input) {
+              return '\x1b[31m Please enter a role name.';
+            }
+            return true;
+          },
         },
-      },
-      {
-        name: 'salary',
-        type: 'input',
-        message: '\x1b[31m Enter the salary of the role:',
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[31m Please enter a salary for the role.';
-          }
-          return true;
+        {
+          name: 'salary',
+          type: 'input',
+          message: '\x1b[31m Enter the salary of the role:',
+          validate: function (input) {
+            if (!input) {
+              return '\x1b[31m Please enter a salary for the role.';
+            }
+            return true;
+          },
         },
-      },
-      {
-        name: 'roleDeptId',
-        type: 'list',
-        message: '\x1b[31m Select the name of the department for the role:',
-        choices: choices,
-        validate: function (input) {
-          if (!input) {
-            return '\x1b[31m Please select a department.';
-          }
-          return true;
+        {
+          name: 'roleDeptId',
+          type: 'list',
+          message: '\x1b[31m Select the name of the department for the role:',
+          choices: choices,
+          validate: function (input) {
+            if (!input) {
+              return '\x1b[31m Please select a department.';
+            }
+            return true;
+          },
         },
-      },
-    ])
-    .then((answer) => {
-      // Once the user provides the role name, insert it into the database
-      const query = 'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)';
-      connection.query(query, [answer.roleName, answer.salary, answer.roleDeptId],
-        (err, res) => {
-          if (err) throw err;
-          console.log(`\x1b[91m Role \x1b[34m${answer.roleName} \x1b[91madded successfully!\n\x1b[0m]`);
-          startApp(); // Go back to the main menu
-        });
-    });
-})}
+      ])
+      .then((answer) => {
+        // Once the user provides the role name, insert it into the database
+        const query = 'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)';
+        connection.query(query, [answer.roleName, answer.salary, answer.roleDeptId],
+          (err, res) => {
+            if (err) throw err;
+            console.log(`\x1b[91m Role \x1b[34m${answer.roleName} \x1b[91madded successfully!\n\x1b[0m]`);
+            startApp(); // Go back to the main menu
+          });
+      });
+  })
+}
 
 function viewEmployees() {
   printCompanyEmployeeBanner();
@@ -686,7 +688,7 @@ function updateEmployeeRole() {
 
       // Query managers for manager choices
       const managersQuery = 'SELECT id AS managerId, first_name, last_name FROM employee WHERE id IN (SELECT DISTINCT manager_id FROM employee)';
-      
+
       connection.query(managersQuery, (managersErr, managersRes) => {
         if (managersErr) throw managersErr;
 
